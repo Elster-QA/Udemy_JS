@@ -9,7 +9,7 @@ await page.locator('button', { hasText: 'Reject All' }).click();
 
 
 await page.locator('a.js-analyticsClick.AMZV', { hasText: 'Markets' }).first().click();
-//<a data-type="nav_id1395" href="/en-int/markets" class="js-analyticsClick AMZV">Markets</a> aka getByRole('link', { name: 'Markets' }).first()
+++++//<a data-type="nav_id1395" href="/en-int/markets" class="js-analyticsClick AMZV">Markets</a> aka getByRole('link', { name: 'Markets' }).first()
 
 await expect(page.locator('h1.IVWY.c5pQ').filter({ hasText: 'Access thousands of global markets' })).toBeVisible();
 
