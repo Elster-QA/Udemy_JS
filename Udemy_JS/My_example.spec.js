@@ -4,13 +4,16 @@ import { test, expect } from '@playwright/test';
 test('has title', async ({ page }) => {
   await page.goto('http://localhost:2221/');
 await expect(page).toHaveURL('http://localhost:2221/');
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Prom – найбільший маркетплейс України/);
+  // Expect a title "to contain" a substring.  
+await page.getByRole('link', { name: 'My Account' }).click();
+await expect(page.getByText('Login').nth(0)).toBeVisible();
 
-  await page.locator('a[href="/sell-on-prom?source_id=banner.b.main"]').click();
- // await page.getByRole('link', { name: 'Почати продавати' }).first().click();
+//await expect(page.getByText('Регистрация')).toBeVisible();
 
-await expect(page.getByText('Регистрация')).toBeVisible();
+//await page.locator('a[href="/sell-on-prom?source_id=banner.b.main"]').click();
+//  await page.getByRole('link', { name: 'Почати продавати' }).first().click();
+
+// await expect(page.getByText('Регистрация')).toBeVisible();
 });
 
 //test('get started link', async ({ page }) => {

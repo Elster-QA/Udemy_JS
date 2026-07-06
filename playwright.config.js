@@ -1,7 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
-  testDir: './tests',
+  testDir: './Udemy_JS',
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
@@ -20,22 +20,22 @@ export default defineConfig({
         headless: false,               // окно будет видно
         launchOptions: { slowMo: 1000 }, // замедление 0.5 сек между действиями
       },
-    }//,
-    //{
-      //name: 'firefox',
-      //use: { 
-        //...devices['Desktop Firefox'],
-        //headless: false,
-        //launchOptions: { slowMo: 1000 },
-      //},
-    //},
-    //{
-      //name: 'webkit',
-      //use: { 
-        //...devices['Desktop Safari'],
-        //headless: false,
-        //launchOptions: { slowMo: 1000 },
-      //},
-    //},
-  ]//,
+    },
+    // {
+    //   name: 'firefox',
+    //   use: { 
+    //   ...devices['Desktop Firefox'],
+    //   headless: false,
+    //   launchOptions: { slowMo: 1000 },
+    //   },
+    // },
+    // {
+    //   name: 'webkit',
+    //   use: { 
+    //   ...devices['Desktop Safari'],
+    //   headless: false,
+    //   launchOptions: { slowMo: 1000 },
+    //   },
+    // },
+  ],
 });
