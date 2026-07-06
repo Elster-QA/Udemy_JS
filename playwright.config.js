@@ -20,22 +20,22 @@ export default defineConfig({
         headless: false,               // окно будет видно
         launchOptions: { slowMo: 1000 }, // замедление 0.5 сек между действиями
       },
-    },
-    {
-      name: 'firefox',
-      use: { 
-        ...devices['Desktop Firefox'],
-        headless: false,
-        launchOptions: { slowMo: 1000 },
-      },
-    },
-    {
-      name: 'webkit',
-      use: { 
-        ...devices['Desktop Safari'],
-        headless: false,
-        launchOptions: { slowMo: 1000 },
-      },
-    },
-  ],
+    }//,
+    //{
+      //name: 'firefox',
+      //use: { 
+        //...devices['Desktop Firefox'],
+        //headless: false,
+        //launchOptions: { slowMo: 1000 },
+      //},
+    //},
+    //{
+      //name: 'webkit',
+      //use: { 
+        //...devices['Desktop Safari'],
+        //headless: false,
+        //launchOptions: { slowMo: 1000 },
+      //},
+    //},
+  ]//,
 });
