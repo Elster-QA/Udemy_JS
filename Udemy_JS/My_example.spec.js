@@ -4,9 +4,15 @@ import { test, expect } from '@playwright/test';
 test('has title', async ({ page }) => {
   await page.goto('http://localhost:2221/');
 await expect(page).toHaveURL('http://localhost:2221/');
+
+await page.getByRole('button', { name: 'Add to Basket' }).nth(0).click();  
+await page.getByRole('button', { name: 'Add to Basket' }).nth(1).click();
+
+await expect (page.getByRole('link', { name: 'My Account' })).toBeVisible();
   // Expect a title "to contain" a substring.  
-await page.getByRole('link', { name: 'My Account' }).click();
-await expect(page.getByText('Login').nth(0)).toBeVisible();
+
+//await page.pause();
+
 
 //await expect(page.getByText('Регистрация')).toBeVisible();
 
@@ -15,6 +21,9 @@ await expect(page.getByText('Login').nth(0)).toBeVisible();
 
 // await expect(page.getByText('Регистрация')).toBeVisible();
 });
+
+
+
 
 //test('get started link', async ({ page }) => {
   //await page.goto('https://playwright.dev/');
