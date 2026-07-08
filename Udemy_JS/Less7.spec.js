@@ -2,6 +2,16 @@ import {test, expect} from '@playwright/test';
 
 test('Basket', async ({page}) =>{
 await page.goto('http://localhost:2221/')
+
+
+const addToBasketButton = page.getByRole('button', { name: 'Add to Basket_+__' }).first() // Если в строке есть методы которые возвращают локатор=(НЕ возвращают Промис), то в этой же строке(в самомо начале) НЕ указываем await
+
+ await addToBasketButton.click() // Если в строке есть методы которые возвращают Промис, то в этой же строке(в самомо начале) указываем await
  
-await expect(page).toHaveURL('http://localhost:2221/')
+
+
+
+ 
+ 
+
 });
