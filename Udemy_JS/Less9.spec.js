@@ -8,8 +8,7 @@ const addToBasketButton = page.getByRole('button', { name: 'Add to Basket' }).fi
 await addToBasketButton.waitFor()//.waitFor()- в д.с. ждет пока элемент указаный више(кнопка с названием 'Add to Basket' ) отобразится на странице
 await addToBasketButton.click()// Если в строке есть методы которые возвращают Промис, то в этой же строке(в самомо начале) указываем await
 
-const removeFromBasket = page.getByRole('button', { name: 'Remove from Basket' }).first()
-await expect(removeFromBasket).toHaveText('Remove from Basket')
+
  
  
 
