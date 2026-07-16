@@ -1,6 +1,6 @@
 import {test, expect} from '@playwright/test';
 
-test('Basket', async ({page}) =>{
+test('Product Page Add To Basket', async ({page}) =>{
 await page.goto('/')
 
 

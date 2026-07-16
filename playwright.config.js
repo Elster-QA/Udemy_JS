@@ -9,11 +9,13 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
   reporter: 'line',
+
    
   
 
   use: {
     trace: 'on-first-retry',
+    baseURL: 'http://localhost:2221/' //это базовый ЮРЛ. В тестах мы только указываем путь и ендпоинт, а основной ЮРЛ берется отсюда.
     
   },
 
