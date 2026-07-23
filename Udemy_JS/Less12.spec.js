@@ -5,7 +5,7 @@ await page.goto('/')
 
 
 
-const addToBasketButton = page.locator('[data-qa="product-button"]').first()//В 8 ом уроке тут был getByRole, но он был заменен потому как getByRole использует ИМЯ элемента, а оно изменяется при клике, поэтому используме CSS-селектор(он при клике не изменный) 
+const addToBasketButton = page.locator('[data-qa="product-button"]').first()//(карточка товара)В 8 ом уроке тут был getByRole, но он был заменен потому как getByRole использует ИМЯ элемента, а оно изменяется при клике, поэтому используме CSS-селектор(он при клике не изменный) 
 const basketCounter = page.locator('[data-qa="header-basket-count"]')//переменная счетчика корзины
 const checkOutLink = page.locator('[data-qa="desktop-nav-link"]').nth(2)//+Обнаружение кнопки "Checkout". .nth(2)-порядковый номер элеиента на странице 
 const CheckEl = page.locator('[data-qa="basket-card"]')//+Карточка товара
