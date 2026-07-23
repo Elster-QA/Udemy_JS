@@ -1,0 +1,27 @@
+import { expect } from '@playwright/test'
+
+export class ProductsPage {
+    constructor(page) {
+        this.page = page
+        this.addButtons = this.page.locator('[data-qa="product-button"]')
+        
+    }
+
+    visit = async () => {
+        await this.page.goto('/')
+    }
+
+    addProductToBasket = async (index) => {
+        await this.addButtons.nth(index).waitFor()
+        await this.addButtons.nth(index).click()
+        
+    }
+
+   
+
+
+
+
+
+
+}
