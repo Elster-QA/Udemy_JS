@@ -5,6 +5,7 @@ export class ProductsPage {
         this.page = page
         this.addButtons = this.page.locator('[data-qa="product-button"]')
         
+               
     }
 
     visit = async () => {
@@ -12,10 +13,18 @@ export class ProductsPage {
     }
 
     addProductToBasket = async (index) => {
-        await this.addButtons.nth(index).waitFor()
-        await this.addButtons.nth(index).click()
+        const specificAddButton = this.addButtons.nth(index)//Создали переменную для "красоты" кода 
+
+        await specificAddButton.waitFor()
+       expect (specificAddButton).toHaveText('Add to Basket')//+
+        await specificAddButton.click()
+       expect(specificAddButton).toHaveText('Remove from Basket')//+
         
     }
+
+   
+
+   
 
    
 
