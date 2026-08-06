@@ -1,22 +1,24 @@
-import {expect} from '@playwright/test'
-import { NewClass } from "./MyNewClass"
+import { expect } from '@playwright/test'
+import { NewClass } from "./MyNavigation"
 
 
 export class OldClass {
 
-    constructor(page){
+    constructor(page) {
         this.page = page
         this.Button = page.locator('[data-qa="product-button"]')
         
     }
-    vis = async()=>{
-        await this.page.goto('/') 
+    
+    vis = async () => {
+        await this.page.goto('/')
     }
 
-    addProd = async (index)=>{
-        const checkButton = expect (this.Button.nth(index))
+    addProd = async (index) => {
+        const checkButton = expect(this.Button.nth(index))
         const newClass = new NewClass(this.page)
-         
+
+
         await this.Button.nth(index).waitFor()
 
         const beforeClick = await newClass.getBesket()
@@ -25,7 +27,14 @@ export class OldClass {
         await checkButton.toHaveText('Remove from Basket')
         const afterClick = await newClass.getBesket()
         expect(afterClick).toBeGreaterThan(beforeClick)
+
+
     }
+
+
+    
+
+
 
 
 }
