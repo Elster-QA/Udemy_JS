@@ -1,19 +1,21 @@
 import {test, expect} from '@playwright/test'
-import {OldClass} from '../page-objects/MyProductPages'
-import { NewClass } from '../page-objects/MyNavigation'
+import {MyProductPages} from '../page-objects/MyProductPages'
+import { MyNavigation } from '../page-objects/MyNavigation'
+import { MyCheckout } from '../page-objects/MyCheckout'
 
 
 test ('name', async ({page}) =>{
-    const oldClass = new OldClass(page)
+    const MyProdPages = new MyProductPages(page)
 
-    await oldClass.vis()
+    await MyProdPages.vis()
 
-    await oldClass.addProd(0)
-    await oldClass.addProd(1)
-    await oldClass.addProd(2)
+    await MyProdPages.addProd(0)
+    await MyProdPages.addProd(1)
+    await MyProdPages.addProd(2)
 
-    const newClass = new NewClass(page)
-    await newClass.toGoBas()
+    const MyNav = new MyNavigation(page)
+    await MyNav.toGoBas()
+    
     
 
 

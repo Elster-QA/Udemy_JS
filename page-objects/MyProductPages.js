@@ -1,8 +1,8 @@
 import { expect } from '@playwright/test'
-import { NewClass } from "./MyNavigation"
+import { MyNavigation } from "./MyNavigation"
 
 
-export class OldClass {
+export class MyProductPages {
 
     constructor(page) {
         this.page = page
@@ -16,16 +16,16 @@ export class OldClass {
 
     addProd = async (index) => {
         const checkButton = expect(this.Button.nth(index))
-        const newClass = new NewClass(this.page)
+        const MyNav = new MyNavigation(this.page)
 
 
         await this.Button.nth(index).waitFor()
 
-        const beforeClick = await newClass.getBesket()
+        const beforeClick = await MyNav.getBesket()
         await checkButton.toHaveText('Add to Basket')
         await this.Button.nth(index).click()
         await checkButton.toHaveText('Remove from Basket')
-        const afterClick = await newClass.getBesket()
+        const afterClick = await MyNav.getBesket()
         expect(afterClick).toBeGreaterThan(beforeClick)
 
 

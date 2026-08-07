@@ -1,6 +1,6 @@
 import {expect} from '@playwright/test'
 
-export class NewClass {
+export class MyNavigation {
     
     constructor(page){
         this.page = page
