@@ -4,6 +4,7 @@ import { MyNavigation } from '../page-objects/MyNavigation'
 import { MyCheckout } from '../page-objects/MyCheckout'
 
 
+
 test ('name', async ({page}) =>{
     const MyProdPages = new MyProductPages(page)
 
@@ -15,6 +16,13 @@ test ('name', async ({page}) =>{
 
     const MyNav = new MyNavigation(page)
     await MyNav.toGoBas()
+
+    const MyCheck = new MyCheckout(page)
+    await MyCheck.removeCheapestProduct()
+    
+
+
+    
     
     
 

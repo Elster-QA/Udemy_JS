@@ -14,13 +14,17 @@ export class Checkout {
         await this.basketCards.first().waitFor()
         await this.basketItemPrice.first().waitFor()
         const allPricesTexst = await this.basketItemPrice.allInnerTexts()//Возвращает текст со ВСЕХ элементов с данным локатором(Используем allInnerTexts(), когда нам нужны тексты сразу всех найденных элементов.)       
-        console.log({allPricesTexst})
         
-        
-        const justNumbers = allPricesTexst.map((elements) =>{
-            console.log({ elements })
+
+        const justNumbers = allPricesTexst.map((elements) => {//В "allPricesTexst" вернулся массив строк.С помощую "map" проходит/берет каждый "elements"(строку) массива и парсит в число
+            const withoutDollarsSigh = elements.replace("$", "")//.replace из каждого числа массива убирает знак "$" и ставит пустоту ""
+            console.log({ withoutDollarsSigh })
+
+            return parseInt(withoutDollarsSigh, 10)
+           
+            
         })
-        
+        console.log({ justNumbers })
 
         // await this.page.pause()
 
