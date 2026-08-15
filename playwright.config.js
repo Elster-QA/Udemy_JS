@@ -25,7 +25,7 @@ export default defineConfig({
       use: { 
         ...devices['Desktop Chrome'],
         headless: true,               // окно будет НЕ видно(true)
-        launchOptions: { slowMo: 1000 }, // замедление 0.5 сек между действиями
+        launchOptions: { slowMo: 300 }, // замедление 0.5 сек между действиями
       },
     },
     // {
