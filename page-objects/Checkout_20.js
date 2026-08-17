@@ -25,7 +25,7 @@ export class Checkout {
         
         const smallestPrice = Math.min(...justNumbers)// Math.min-возвращает в перем.smallestPrice минимальное значение из justNumbers. (...justNumbers) -Три точки разворачивают массив в список чисел.Например:[10, 5, 99]->10, 5, 99
         const smallestPriceIdx = justNumbers.indexOf(smallestPrice)// indexOf- определяет последовательность или порядковый номер минимального числа в массиве
-        await this.page.pause()
+        // await this.page.pause()
         const specificRemoveButton = this.basketItemRemoveButton.nth(smallestPriceIdx)
         await specificRemoveButton.waitFor()
         await specificRemoveButton.click()

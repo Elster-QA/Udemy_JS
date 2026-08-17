@@ -7,6 +7,8 @@ test('New user full end-to-end test journey', async ({ page }) => {
   const productsPage = new ProductsPage(page)
   await productsPage.visit()
 
+  await productsPage.sortByCheapest()//сортировка по цене, по дешовому тов.
+
 
   await productsPage.addProductToBasket(0)
   await productsPage.addProductToBasket(1)
@@ -18,6 +20,8 @@ test('New user full end-to-end test journey', async ({ page }) => {
   const checkout = new Checkout(page)
   await checkout.removeCheapestProduct()
 
+  
+  
 
   
   

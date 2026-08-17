@@ -5,6 +5,7 @@ export class Navigation {
         this.page = page
         this.basketCounter = page.locator('[data-qa="header-basket-count"]')
         this.checkoutLink = page.getByRole('link', { name: 'Checkout' })
+        
 
     }
 
@@ -23,6 +24,8 @@ export class Navigation {
         await this.page.waitForURL('/basket')
         await expect(this.page).toHaveURL('/basket')
     }
+
+     
 
 
 }
