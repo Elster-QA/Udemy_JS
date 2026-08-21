@@ -1,14 +1,15 @@
-import {test, expect} from '@playwright/test'
-import {MyProductPages} from '../page-objects/MyProductPages'
+import { test, expect } from '@playwright/test'
+import { MyProductPages } from '../page-objects/MyProductPages'
 import { MyNavigation } from '../page-objects/MyNavigation'
 import { MyCheckout } from '../page-objects/MyCheckout'
 
 
 
-test ('name', async ({page}) =>{
+test('name', async ({ page }) => {
     const MyProdPages = new MyProductPages(page)
-
     await MyProdPages.vis()
+    await MyProdPages.sortCeapestProducts()
+
 
     await MyProdPages.addProd(0)
     await MyProdPages.addProd(1)
@@ -19,12 +20,12 @@ test ('name', async ({page}) =>{
 
     const MyCheck = new MyCheckout(page)
     await MyCheck.removeCheapestProduct()
+
     
 
 
-    
-    
-    
+
+
 
 
 })

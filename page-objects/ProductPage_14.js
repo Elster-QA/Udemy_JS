@@ -3,7 +3,7 @@ import { expect } from '@playwright/test'
 export class ProductsPage {
     constructor(page) {
         this.page = page
-        this.addButtons = this.page.locator('[data-qa="product-button"]')
+        this.addButtons = page.locator('[data-qa="product-button"]')
         
                
     }

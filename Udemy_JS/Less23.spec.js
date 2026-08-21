@@ -1,8 +1,9 @@
 import { test, expect } from '@playwright/test'
-import { ProductsPage } from '../page-objects/ProductPage_21'
-import { Navigation } from '../page-objects/Navigation_21'
-import { Checkout } from '../page-objects/Checkout_21'
-import { LoginPage } from '../page-objects/LoginPage_21'
+import { ProductsPage } from '../page-objects/ProductPage_23'
+import { Navigation } from '../page-objects/Navigation_23'
+import { Checkout } from '../page-objects/Checkout_23'
+import { LoginPage } from '../page-objects/LoginPage_23'
+import { RegisterPage } from './RegisterPage_23'
 
 test('New user full end-to-end test journey', async ({ page }) => {
   const productsPage = new ProductsPage(page)
@@ -25,6 +26,9 @@ test('New user full end-to-end test journey', async ({ page }) => {
 
   const login = new LoginPage(page)
   await login.moveToSignup()
+  
+  const registerPage = new RegisterPage(page)
+  await registerPage.signUpAsNewUser()
 
 
 

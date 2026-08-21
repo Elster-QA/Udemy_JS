@@ -25,7 +25,7 @@ export class MyCheckout {
 
         })
         console.log({ justnumbers })
-await this.page.pause()
+// await this.page.pause()
        const smallestPrices = Math.min(...justnumbers)
        const idxMinButton = justnumbers.indexOf(smallestPrices)
        await this.cardRemButton.nth(idxMinButton).waitFor()
@@ -33,5 +33,6 @@ await this.page.pause()
        await expect(this.productBasketCard).toHaveCount(buttonCardRemove -1)
 
     }
+    
 
 }

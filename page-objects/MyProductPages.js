@@ -7,9 +7,14 @@ export class MyProductPages {
     constructor(page) {
         this.page = page
         this.Button = page.locator('[data-qa="product-button"]')
-        
+        this.dropDownList = page.locator('[data-qa="sort-dropdown"]')
+        this.dropDownListButton = page.locator('[data-qa="sort-dropdown"]')
+        this.itemProdCard = page.locator('[data-qa="product-title"]')
+
+
+
     }
-    
+
     vis = async () => {
         await this.page.goto('/')
     }
@@ -31,8 +36,25 @@ export class MyProductPages {
 
     }
 
+    sortCeapestProducts =async () => {
+        await this.page.pause()
+        await this.dropDownListButton.waitFor()
+        await this.itemProdCard.first().waitFor()
+        const beforeClickOn = await this.itemProdCard.allInnerTexts()
+        console.log(beforeClickOn)
+        await this.dropDownListButton.selectOption('price-asc')
+        const afterClickOn = await this.itemProdCard.allInnerTexts()
+        console.log(afterClickOn)
+        await expect(beforeClickOn).not.toEqual(afterClickOn)
+         
 
-    
+    }
+
+
+
+
+
+
 
 
 

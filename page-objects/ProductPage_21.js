@@ -30,17 +30,13 @@ export class ProductsPage {
     }
 
     sortByCheapest = async () => {//+
-        await this.page.pause()
         await this.sortDropdown.waitFor()
         await this.productTitle.first().waitFor()
         const productTitlesBeforeSort = await this.productTitle.allInnerTexts()
-        console.log(productTitlesBeforeSort)
-
         await this.sortDropdown.selectOption('price-asc')//selectOption-работа с DropDownList в аргументе указываем один из пунктов выпад. списка
         const productTitlesAfterSort = await this.productTitle.allInnerTexts()
-        console.log(productTitlesAfterSort)
-         expect(productTitlesBeforeSort).not.toEqual(productTitlesAfterSort)
-        await this.page.pause()
+        expect(productTitlesBeforeSort).not.toEqual(productTitlesAfterSort)
+        // await this.page.pause()
     }
 
 
