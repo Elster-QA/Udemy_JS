@@ -3,7 +3,7 @@ import { ProductsPage } from '../page-objects/ProductPage_23'
 import { Navigation } from '../page-objects/Navigation_23'
 import { Checkout } from '../page-objects/Checkout_23'
 import { LoginPage } from '../page-objects/LoginPage_23'
-import { RegisterPage } from './RegisterPage_23'
+import { RegisterPage } from '../page-objects/RegisterPage_23'
 
 test('New user full end-to-end test journey', async ({ page }) => {
   const productsPage = new ProductsPage(page)

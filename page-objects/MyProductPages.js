@@ -37,7 +37,7 @@ export class MyProductPages {
     }
 
     sortCeapestProducts =async () => {
-        await this.page.pause()
+        // await this.page.pause()
         await this.dropDownListButton.waitFor()
         await this.itemProdCard.first().waitFor()
         const beforeClickOn = await this.itemProdCard.allInnerTexts()

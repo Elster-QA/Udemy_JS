@@ -11,19 +11,15 @@ export class RegisterPage {
 
     }
 
-    signUpAsNewUser = async () => {
+    signUpAsNewUser = async (email, password) => {
         await this.page.pause()
         await this.mailField.waitFor()
-        const emailId = uuidv4()//Создание переменной и сохранение туда рендомного числа
-        const email = emailId + "@gmail.com"//Добавление к рендомному числу "@gmail.com"
         
         await this.mailField.fill(email)
         await expect(this.mailField).toHaveValue(email)//Новый метод. Проверка содержимого поля 
         await this.passwordField.waitFor()
-        const passwodId = uuidv4()
-        await this.passwordField.fill(passwodId)
-        await expect(this.passwordField).toHaveValue(passwodId)
-              
+        await this.passwordField.fill(password)
+        await expect(this.passwordField).toHaveValue(password)
         await this.signUpButton.waitFor()
         await this.signUpButton.click()
         await expect(this.page).toHaveURL(/\/delivery-details/)
