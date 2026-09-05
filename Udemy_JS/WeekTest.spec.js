@@ -2,12 +2,13 @@ import { expect, test } from '@playwright/test'
 import { v4 as uuidv4 } from 'uuid'
 import { WeekNavigation } from '../page-objects/WeekNavigation'
 import { WeekLoginPage } from '../page-objects/WeekLoginPage'
-import { credData } from '../page-objects/WeekData'
+import { credData, credDataForReg, adressData } from '../data/WeekData'
 import { WeekSignupPage } from '../page-objects/WeekSignupPage'
-import { credDataForReg } from '../page-objects/WeekData'
+
+
 
 test('name', async ({ page }) => {
-    
+
     const navigation = new WeekNavigation(page)
     await navigation.visit()
     await navigation.goToSignup()
@@ -20,6 +21,11 @@ test('name', async ({ page }) => {
 
     const signupPage = new WeekSignupPage(page)
     await signupPage.entryDataRegistry(credDataForReg)
+    await signupPage.entryDataAdressInfo(adressData)
+    await signupPage.logOutAction()
+
+    await loginPage.authAfterRegistry(emailField, credDataForReg)
+
 
 
 })

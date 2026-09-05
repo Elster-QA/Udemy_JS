@@ -1,3 +1,5 @@
+import { expect } from "@playwright/test"
+
 export class WeekSignupPage {
     constructor(page) {
         this.page = page
@@ -9,18 +11,22 @@ export class WeekSignupPage {
         this.checkBoxOne = page.locator('[name="newsletter"]')
         this.checkBoxTwo = page.locator('[name="optin"]')
 
-        this.firstNameField = page.loctor('[data-qa="first_name"]')
-        this.lastNameField = page.loctor('[data-qa="last_name"]')
-        this.companyNameField = page.loctor('[data-qa="company"]')
-        this.adressField = page.loctor('[data-qa="address"]')
-        this.adress2Field = page.loctor('[data-qa="address2"]')
-        this.countryDropDownList= page.loctor('[data-qa="country"]')
-        this.stateField = page.loctor('[data-qa="state"]')
-        this.cityField = page.loctor('[data-qa="city"]')
-        this.zipCodeField = page.loctor('[data-qa="zipcode"]')
-        this.mobileNumberField = page.loctor('[data-qa="mobile_number"]')
-        this.createAccButton = page.loctor('[data-qa="create-account"]')
+        this.firstNameField = page.locator('[data-qa="first_name"]')
+        this.lastNameField = page.locator('[data-qa="last_name"]')
+        this.companyNameField = page.locator('[data-qa="company"]')
+        this.adressField = page.locator('[data-qa="address"]')
+        this.adress2Field = page.locator('[data-qa="address2"]')
+        this.countryDropDownList = page.locator('[data-qa="country"]')
+        this.stateField = page.locator('[data-qa="state"]')
+        this.cityField = page.locator('[data-qa="city"]')
+        this.zipCodeField = page.locator('[data-qa="zipcode"]')
+        this.mobileNumberField = page.locator('[data-qa="mobile_number"]')
+        this.createAccButton = page.locator('[data-qa="create-account"]')
+        this.titleAccess = page.locator('[data-qa="account-created"]')
+        this.continueButton = page.locator('[data-qa="continue-button"]')
 
+        this.chipLoginUser = page.getByText('Logged in as John_Macklee')//Костыль -захардкорджено
+        this.logOutButton = page.getByRole('link', { name: ' Logout' })
     }
 
     entryDataRegistry = async (credDataForReg) => {
@@ -29,21 +35,63 @@ export class WeekSignupPage {
         await this.passField.waitFor()
         await this.passField.fill(credDataForReg.password)
 
-        this.dayDropList.waitFor()
-        this.dayDropList.selectOption('5')
-        this.monthDropList.waitFor()
-        this.monthDropList.selectOption('5')
-        this.yearDropList.waitFor()
-        this.yearDropList.selectOption('1987')
+        await this.dayDropList.waitFor()
+        await this.dayDropList.selectOption('5')
+        await this.monthDropList.waitFor()
+        await this.monthDropList.selectOption('5')
+        await this.yearDropList.waitFor()
+        await this.yearDropList.selectOption('1987')
 
         await this.checkBoxOne.click()
         await this.checkBoxTwo.click()
 
-        await this.page.pause()
+
     }
 
-    entryDataAdressInfo = async () => { 
+    entryDataAdressInfo = async (adressData) => {
+await this.page.pause()
+        await this.firstNameField.waitFor()
+        await this.firstNameField.fill(adressData.firstName)
+        await this.lastNameField.waitFor()
+        await this.lastNameField.fill(adressData.lastName)
+        await this.companyNameField.waitFor()
+        await this.companyNameField.fill(adressData.companyName)
+        await this.adressField.waitFor()
+        await this.adressField.fill(adressData.adress.join(', '))//С помощую "join(', ')" в аргумент передаются все значения из массива "adress: ['Gogol str.', 'p.o.Box 321', 'PeaceWorld'],"
+        await this.adress2Field.waitFor()
+        await this.adress2Field.fill(adressData.adress2.join(', '))
+        await this.countryDropDownList.waitFor()
+        await this.countryDropDownList.selectOption(adressData.countryName)
+        await this.stateField.waitFor()
+        await this.stateField.fill(adressData.stateName)
+        await this.cityField.waitFor()
+        await this.cityField.fill(adressData.cityName)
+        await this.zipCodeField.waitFor()
+        await this.zipCodeField.fill(adressData.zipName)
+        await this.mobileNumberField.waitFor()
+        await this.mobileNumberField.fill(adressData.mobileNumber)
 
+        await this.createAccButton.waitFor()
+        await this.createAccButton.click()
+        
+        await expect(this.page).toHaveURL(/\/account_created/)
+        await expect(this.titleAccess).toHaveText('Account Created!')
+
+
+        await this.continueButton.waitFor()
+        await this.continueButton.click()
+
+        await expect(this.chipLoginUser).toBeVisible()
+        await expect(this.chipLoginUser).toHaveText(/John_Macklee/)
+
+
+
+    }
+
+    logOutAction = async () => {
+        await this.logOutButton.waitFor()
+        await this.logOutButton.click()
+        await expect(this.page).toHaveURL(/\/login/)
 
     }
 

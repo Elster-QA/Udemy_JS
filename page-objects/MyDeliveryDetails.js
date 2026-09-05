@@ -1,4 +1,4 @@
-import {expect} from '@playwright/test'
+import { expect } from '@playwright/test'
 
 
 
@@ -11,7 +11,18 @@ export class MyDeliveryDetails {
         this.post = page.locator('[data-qa="delivery-postcode"]')
         this.city = page.locator('[data-qa="delivery-city"]')
         this.country = page.locator('[data-qa="country-dropdown"]')
-        
+        this.saveButton = page.getByRole('button', { name: 'Save address for next time' })
+        this.adressSaveBox = page.locator('[data-qa="saved-address-container"]')
+
+        this.firstBox = page.locator('[data-qa="saved-address-firstName"]')
+        this.lastBox = page.locator('[data-qa="saved-address-lastName"]')
+        this.streetBox = page.locator('[data-qa="saved-address-street"]')
+        this.postBox = page.locator('[data-qa="saved-address-postcode"]')
+        this.cityBox = page.locator('[data-qa="saved-address-city"]')
+        this.countryBox = page.locator('[data-qa="saved-address-country"]')
+
+
+
     }
 
     enrtyDataToDelivery = async (userAdress) => {
@@ -38,6 +49,37 @@ export class MyDeliveryDetails {
         await this.country.waitFor()
         await this.country.selectOption(userAdress.country)
         await expect(this.country).toHaveValue('Albania')
-     }
+
+    }
+
+    checkSaveAdress = async () => {
+        await this.page.pause()
+        const adressBox = await this.adressSaveBox.count()
+        this.saveButton.waitFor()
+        this.saveButton.click()
+        await expect(this.adressSaveBox).toHaveCount(adressBox + 1)
+
+        await this.firstBox.waitFor()
+        expect(await this.firstBox.first().innerText()).toBe(await this.first.inputValue())
+        await this.lastBox.waitFor()
+        expect(await this.lastBox.first().innerText()).toBe(await this.last.inputValue())
+        await this.streetBox.waitFor()
+        expect(await this.streetBox.first().innerText()).toBe(await this.street.inputValue())
+        await this.postBox.waitFor()
+        expect(await this.postBox.first().innerText()).toBe(await this.post.inputValue())
+        await this.cityBox.waitFor()
+        expect(await this.cityBox.first().innerText()).toBe(await this.city.inputValue())
+        await this.countryBox.waitFor()
+        expect(await this.countryBox.first().innerText()).toBe(await this.country.inputValue())
+
+
+
+
+    }
+
+
+
+
+
 
 }

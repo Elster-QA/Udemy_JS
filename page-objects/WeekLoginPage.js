@@ -3,30 +3,51 @@ import { expect } from "@playwright/test"
 export class WeekLoginPage {
     constructor(page) {
         this.page = page
-        this.loginField = page.locator('[data-qa="signup-name"]')
+        this.signUpField = page.locator('[data-qa="signup-name"]')
         this.mailField = page.locator('[data-qa="signup-email"]')
         this.signupButton = page.locator('[data-qa="signup-button"]')
-        
+
+        this.loginField = page.locator('[data-qa="login-email"]')
+        this.passwordField = page.locator('[data-qa="login-password"]')
+        this.loginButton = page.locator('[data-qa="login-button"]')
+
+        this.chipLoginUser = page.getByText('Logged in as John_Macklee')//Костыль -захардкорджено
+
     }
 
     fillFieldName = async (credData) => {
-        await this.loginField.waitFor()
-        await this.loginField.fill(credData.name)
+        await this.signUpField.waitFor()
+        await this.signUpField.fill(credData.name)
 
 
     }
 
     fillFieldMail = async (emailField) => {
-
         await this.mailField.waitFor()
         await this.mailField.fill(emailField)
         await this.signupButton.waitFor()
         await this.signupButton.click()
         await expect(this.page).toHaveURL(/\/signup/)
-        
-        
+
+
 
     }
 
-    
+    authAfterRegistry = async (emailField, credDataForReg) => {
+        
+        await this.loginField.waitFor()
+        await this.loginField.fill(emailField)
+
+        await this.passwordField.waitFor()
+        await this.passwordField.fill(credDataForReg.password)
+
+        await this.loginButton.waitFor()
+        await this.loginButton.click()
+
+        await expect(this.chipLoginUser).toBeVisible()
+        await expect(this.chipLoginUser).toHaveText(/John_Macklee/)
+
+     }
+
+
 }

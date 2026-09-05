@@ -7,3 +7,4 @@ export const deliveryDetails = {
     city : 'Teara',
     country : 'Albania',
 }
+

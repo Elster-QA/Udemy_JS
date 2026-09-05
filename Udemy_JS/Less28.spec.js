@@ -1,11 +1,11 @@
 import { test, expect } from '@playwright/test'
 import { v4 as uuidv4 } from '../node_modules/uuid'
-import { ProductsPage } from '../page-objects/ProductPage_27'
-import { Navigation } from '../page-objects/Navigation_27'
-import { Checkout } from '../page-objects/Checkout_27'
-import { LoginPage } from '../page-objects/LoginPage_27'
-import { RegisterPage } from '../page-objects/RegisterPage_27'
-import { DeliveryDetails } from '../page-objects/DeliveryDetails_27'
+import { ProductsPage } from '../page-objects/ProductPage_28'
+import { Navigation } from '../page-objects/Navigation_28'
+import { Checkout } from '../page-objects/Checkout_28'
+import { LoginPage } from '../page-objects/LoginPage_28'
+import { RegisterPage } from '../page-objects/RegisterPage_28'
+import { DeliveryDetails } from '../page-objects/DeliveryDetails_28'
 import { deliveryDetails as userAdress } from '../data/DeliveryDetails_data_26'
 
 

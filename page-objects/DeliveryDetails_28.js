@@ -12,6 +12,14 @@ export class DeliveryDetails {
         this.saveAdressButton = page.locator('[data-qa="save-address-button"]')
         this.savedAdressContainer = page.locator('[data-qa="saved-address-container"]')
 
+        this.firstNameSaved = page.locator('[data-qa="saved-address-firstName"]')
+        this.lastNameSaved = page.locator('[data-qa="saved-address-lastName"]')
+        this.streetNameSaved = page.locator('[data-qa="saved-address-street"]')
+        this.postNameSaved = page.locator('[data-qa="saved-address-postcode"]')
+        this.citySaved = page.locator('[data-qa="saved-address-city"]')
+        this.countrySaved = page.locator('[data-qa="saved-address-country"]')
+
+
     }
 
     fillDetails = async (userAdress) => {
@@ -32,11 +40,27 @@ export class DeliveryDetails {
     }
 
     saveDetails = async () => {
+
         const beforeClick = await this.savedAdressContainer.count()
         await this.saveAdressButton.waitFor()
         await this.saveAdressButton.click()
         await this.savedAdressContainer.waitFor()
-        await expect(this.savedAdressContainer).toHaveCount(beforeClick +1)//Выполняется сверка что количество данных елементов (this.savedAdressContainer) соответствует переменной (beforeClick) +1.(После клика добавляется элемент)
+        await expect(this.savedAdressContainer).toHaveCount(beforeClick + 1)
+
         await this.page.pause()
+        await this.firstNameSaved.waitFor()
+        expect(await this.firstNameSaved.first().innerText()).toBe(await this.firstNameField.inputValue())
+        await this.lastNameSaved.waitFor()
+        expect(await this.lastNameSaved.first().innerText()).toBe(await this.lastNameField.inputValue())
+        await this.streetNameSaved.waitFor()
+        expect(await this.streetNameSaved.first().innerText()).toBe(await this.streetNameField.inputValue())
+        await this.postNameSaved.waitFor()
+        expect(await this.postNameSaved.first().innerText()).toBe(await this.postNameField.inputValue())
+        await this.citySaved.waitFor()
+        expect(await this.citySaved.first().innerText()).toBe(await this.cityNameField.inputValue())
+        await this.countrySaved.waitFor()
+        expect(await this.countrySaved.first().innerText()).toBe(await this.dropCountryList.inputValue())
+
+
     }
 }

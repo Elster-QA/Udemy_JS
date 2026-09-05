@@ -1,7 +1,5 @@
 import { expect } from "@playwright/test"
 
-
-
 export class MyRegPage {
     constructor(page) {
         this.page = page
@@ -23,7 +21,7 @@ export class MyRegPage {
         await this.regButton.click()
         await expect(this.page).toHaveURL(/\/delivery-details/)
         await expect(this.title).toHaveText('Delivery details')
-        await this.page.pause()
+
 
     }
 

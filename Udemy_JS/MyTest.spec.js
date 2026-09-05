@@ -38,6 +38,10 @@ test('name', async ({ page }) => {
 
     const deliveryDetails = new MyDeliveryDetails(page)
     await deliveryDetails.enrtyDataToDelivery(userAdress)
+   
+    await deliveryDetails.checkSaveAdress()
+
+    
 
 
 

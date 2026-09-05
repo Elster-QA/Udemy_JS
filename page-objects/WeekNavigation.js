@@ -19,7 +19,7 @@ export class WeekNavigation {
         await this.loginButton.waitFor()
         await this.loginButton.click()
         await expect(this.page).toHaveURL(/\/login/)
-        await this.page.pause()
+        
 
      }
 
