@@ -21,6 +21,7 @@ export class MyDeliveryDetails {
         this.cityBox = page.locator('[data-qa="saved-address-city"]')
         this.countryBox = page.locator('[data-qa="saved-address-country"]')
 
+        this.paymentButton = page.locator('[data-qa="continue-to-payment-button"]')
 
 
     }
@@ -72,11 +73,19 @@ export class MyDeliveryDetails {
         await this.countryBox.waitFor()
         expect(await this.countryBox.first().innerText()).toBe(await this.country.inputValue())
 
+    }
+
+     continueToPayment = async () => {
+        await this.page.pause()
+        await this.paymentButton.waitFor()
+        await this.paymentButton.click()
+        await this.page.waitForURL(/\/payment/, { timeout:3000 })
+
+        
 
 
 
     }
-
 
 
 

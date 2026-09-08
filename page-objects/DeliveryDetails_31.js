@@ -20,11 +20,7 @@ export class DeliveryDetails {
         this.countrySaved = page.locator('[data-qa="saved-address-country"]')
 
         this.paymentButton = page.locator('[data-qa="continue-to-payment-button"]')
-        this.discountFrame = page.locator('[data-qa="active-discount-container"]')
-        this.discountField = page.getByRole('textbox', { name: 'Discount code' })
-        this.discountCode = page.locator('iframe').contentFrame().getByText('15977dc17330')
-        this.submitDiscountButton = page.locator('[data-qa="submit-discount-button"]')
-        this.dicountDone = page.locator('[data-qa="discount-active-message"]')
+
 
     }
 
@@ -66,18 +62,14 @@ export class DeliveryDetails {
         expect(await this.citySaved.first().innerText()).toBe(await this.cityNameField.inputValue())
         await this.countrySaved.waitFor()
         expect(await this.countrySaved.first().innerText()).toBe(await this.dropCountryList.inputValue())
-
+await this.page.pause()
     }
 
     continueToPayment = async () => {
-        await this.page.pause()
         await this.paymentButton.waitFor()
         await this.paymentButton.click()
-        await this.page.waitForURL(/\/payment/, { timeout:3000 })
-
-        
-
-
+        await this.page.waitForURL(/\/payment/, { timeout: 3000 })
+        await expect(this.page).toHaveURL(/\/payment/)
 
     }
 

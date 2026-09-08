@@ -21,10 +21,10 @@ test('name', async ({ page }) => {
 
     const signupPage = new WeekSignupPage(page)
     await signupPage.entryDataRegistry(credDataForReg)
-    await signupPage.entryDataAdressInfo(adressData)
+    await signupPage.entryDataAdressInfo(adressData, credData)
     await signupPage.logOutAction()
 
-    await loginPage.authAfterRegistry(emailField, credDataForReg)
+    await loginPage.authAfterRegistry(emailField, credDataForReg, credData)
 
 
 

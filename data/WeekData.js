@@ -1,5 +1,5 @@
 export const credData = {
-    name: 'John_Macklee'
+    name: 'John_Miller'
 }
 
 export const credDataForReg = {
@@ -7,14 +7,14 @@ export const credDataForReg = {
 }
 
 export const adressData = {
-    firstName: 'Jorg',
-    lastName: 'Jang',
-    companyName: 'WorldPeace',
-    adress: ['Gogol str.', 'p.o.Box 321', 'PeaceWorld'],
-    adress2: ['Gogol+ str.', 'p.o.Box 3211', 'PeaceWorld2'],
-    countryName :'Canada',
+    firstName: 'John',
+    lastName: 'Miller',
+    companyName: 'MillerWorldPeaceInc.',
+    adress: ['Gogol str.', 'p.o.Box 321', 'MillerWorldPeaceInc.'],
+    adress2: ['Gogol+ str.', 'p.o.Box 3211', 'Miller2WorldPeaceInc'],
+    countryName :'New Zealand',
     stateName :'Arizona',
-    cityName :'BushMap',
+    cityName :'All_Black',
     zipName:'01987',
     mobileNumber:'+380753578965'
 

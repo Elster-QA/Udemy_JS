@@ -25,7 +25,7 @@ export class WeekSignupPage {
         this.titleAccess = page.locator('[data-qa="account-created"]')
         this.continueButton = page.locator('[data-qa="continue-button"]')
 
-        this.chipLoginUser = page.getByText('Logged in as John_Macklee')//Костыль -захардкорджено
+        this.chipLoginUser = page.getByText(/Logged in as/) 
         this.logOutButton = page.getByRole('link', { name: ' Logout' })
     }
 
@@ -48,8 +48,8 @@ export class WeekSignupPage {
 
     }
 
-    entryDataAdressInfo = async (adressData) => {
-await this.page.pause()
+    entryDataAdressInfo = async (adressData, credData) => {
+        await this.page.pause()
         await this.firstNameField.waitFor()
         await this.firstNameField.fill(adressData.firstName)
         await this.lastNameField.waitFor()
@@ -73,7 +73,7 @@ await this.page.pause()
 
         await this.createAccButton.waitFor()
         await this.createAccButton.click()
-        
+
         await expect(this.page).toHaveURL(/\/account_created/)
         await expect(this.titleAccess).toHaveText('Account Created!')
 
@@ -82,8 +82,7 @@ await this.page.pause()
         await this.continueButton.click()
 
         await expect(this.chipLoginUser).toBeVisible()
-        await expect(this.chipLoginUser).toHaveText(/John_Macklee/)
-
+        await expect(this.chipLoginUser).toHaveText(new RegExp(credData.name))// new RegExp(credData.name) — превращает значение credData.name в регулярное выражение.new RegExp(credData.name) - используется как регулярка для credData.name (аргумента и значения) 
 
 
     }

@@ -7,6 +7,7 @@ import { MyLoginPage } from '../page-objects/MyLoginPage'
 import { MyRegPage } from '../page-objects/MyRegPage'
 import { MyDeliveryDetails } from '../page-objects/MyDeliveryDetails'
 import { deliveryDetails as userAdress } from '../data/MyDeliveryData'
+import { MyPaymentPage } from '../page-objects/MyPaymentPage'
 
 
 
@@ -38,10 +39,15 @@ test('name', async ({ page }) => {
 
     const deliveryDetails = new MyDeliveryDetails(page)
     await deliveryDetails.enrtyDataToDelivery(userAdress)
-   
     await deliveryDetails.checkSaveAdress()
 
-    
+     await deliveryDetails.continueToPayment()
+
+     const paymentPage = new MyPaymentPage(page)
+     await paymentPage.activeDiscount()
+
+
+
 
 
 
