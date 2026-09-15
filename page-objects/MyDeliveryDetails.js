@@ -54,10 +54,12 @@ export class MyDeliveryDetails {
     }
 
     checkSaveAdress = async () => {
-        await this.page.pause()
+       
+             
         const adressBox = await this.adressSaveBox.count()
-        this.saveButton.waitFor()
-        this.saveButton.click()
+        await this.saveButton.waitFor()
+        await this.saveButton.click()
+       
         await expect(this.adressSaveBox).toHaveCount(adressBox + 1)
 
         await this.firstBox.waitFor()
@@ -75,13 +77,12 @@ export class MyDeliveryDetails {
 
     }
 
-     continueToPayment = async () => {
-        await this.page.pause()
+    continueToPayment = async () => {
         await this.paymentButton.waitFor()
         await this.paymentButton.click()
-        await this.page.waitForURL(/\/payment/, { timeout:3000 })
+        await this.page.waitForURL(/\/payment/, { timeout: 3000 })
 
-        
+
 
 
 

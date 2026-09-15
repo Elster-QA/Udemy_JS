@@ -12,6 +12,7 @@ import { MyPaymentPage } from '../page-objects/MyPaymentPage'
 
 
 test('name', async ({ page }) => {
+    
     const MyProdPages = new MyProductPages(page)
     await MyProdPages.vis()
     await MyProdPages.sortCeapestProducts()

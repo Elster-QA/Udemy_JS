@@ -11,7 +11,7 @@ export class WeekLoginPage {
         this.passwordField = page.locator('[data-qa="login-password"]')
         this.loginButton = page.locator('[data-qa="login-button"]')
 
-        this.chipLoginUser = page.getByText(/Logged in as/) 
+        this.chipLoginUser = page.getByText(/Logged in as/)
 
     }
 
@@ -34,7 +34,7 @@ export class WeekLoginPage {
     }
 
     authAfterRegistry = async (emailField, credDataForReg, credData) => {
-        
+
         await this.loginField.waitFor()
         await this.loginField.fill(emailField)
 
@@ -43,11 +43,13 @@ export class WeekLoginPage {
 
         await this.loginButton.waitFor()
         await this.loginButton.click()
-await this.page.pause()
         await expect(this.chipLoginUser).toBeVisible()
         await expect(this.chipLoginUser).toHaveText(new RegExp(credData.name))
+await this.page.pause()
 
-     }
+    }
+
+
 
 
 }

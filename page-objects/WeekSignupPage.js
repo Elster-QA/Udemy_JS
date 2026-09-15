@@ -25,7 +25,7 @@ export class WeekSignupPage {
         this.titleAccess = page.locator('[data-qa="account-created"]')
         this.continueButton = page.locator('[data-qa="continue-button"]')
 
-        this.chipLoginUser = page.getByText(/Logged in as/) 
+        this.chipLoginUser = page.getByText(/Logged in as/)
         this.logOutButton = page.getByRole('link', { name: ' Logout' })
     }
 
@@ -49,7 +49,6 @@ export class WeekSignupPage {
     }
 
     entryDataAdressInfo = async (adressData, credData) => {
-        await this.page.pause()
         await this.firstNameField.waitFor()
         await this.firstNameField.fill(adressData.firstName)
         await this.lastNameField.waitFor()
