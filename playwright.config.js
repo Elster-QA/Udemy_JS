@@ -3,7 +3,7 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   
   testDir: './Udemy_JS',
-  timeout: 30000,
+  timeout: 30000,// (5 * 1000)- таймАут
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
@@ -20,12 +20,20 @@ export default defineConfig({
   },
 
   projects: [
+    // {
+    //   name: 'chromium',
+    //   use: { 
+    //     ...devices['Desktop Chrome'],
+    //     headless: true,               // окно будет НЕ видно(true)
+    //     launchOptions: { slowMo: 250 }, // замедление 0.5 сек между действиями
+    //   },
+    // },
     {
-      name: 'chromium',
+      name: 'Mobile chrome',
       use: { 
-        ...devices['Desktop Chrome'],
-        headless: true,               // окно будет НЕ видно(true)
-        launchOptions: { slowMo: 300 }, // замедление 0.5 сек между действиями
+        ...devices['Pixel 5'],//Это конфиг под мобильный браузер. В этой строке указываем девайс под которым будет проходить тест.
+        headless: true,               
+        launchOptions: { slowMo: 250 }, 
       },
     },
     // {

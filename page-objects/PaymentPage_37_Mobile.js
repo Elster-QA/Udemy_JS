@@ -41,11 +41,11 @@ export class PaymentPage {
         const priceAfter = parseInt(await this.priceAfterDiscounRow.innerText(), 10)//Это "мой") вариант, ParseInt оставляет только числа, но если числа ижут в начале строки т.е. "125$", но если так "$125", то смотри метод выше
         console.log({ priceAfter })
         expect(priceAfter).toBeLessThan(clearNumber)
- await this.page.pause()
+        await this.page.pause()
     }
 
     fillPaymentDetails = async (paymentsDetails) => {
-        
+
         await this.cardOwnerField.waitFor()
         await this.cardOwnerField.fill(paymentsDetails.cardOwner)
         expect(await this.cardOwnerField.inputValue()).toBe(paymentsDetails.cardOwner)
@@ -62,13 +62,14 @@ export class PaymentPage {
         await this.cardCvcField.fill(paymentsDetails.cardCVC)
         expect(await this.cardCvcField.inputValue()).toBe(paymentsDetails.cardCVC)
 
-        await this.payButton.waitFor()
-        await this.payButton.click()
-        await expect(this.page).toHaveURL('/thank-you')
-
-
     }
 
+    completePayment = async () => {
+        await this.payButton.waitFor()
+        await this.payButton.click()
+        await this.page.waitForURL(/\/thank-you/, {timeout: 3000})
+        
+     }
 
 
 }

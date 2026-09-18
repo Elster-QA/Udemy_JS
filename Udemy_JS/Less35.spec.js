@@ -1,13 +1,13 @@
 import { test, expect } from '@playwright/test'
 import { v4 as uuidv4 } from '../node_modules/uuid'
-import { ProductsPage } from '../page-objects/ProductPage_34'
-import { Navigation } from '../page-objects/Navigation_34'
-import { Checkout } from '../page-objects/Checkout_34'
-import { LoginPage } from '../page-objects/LoginPage_34'
-import { RegisterPage } from '../page-objects/RegisterPage_34'
-import { DeliveryDetails } from '../page-objects/DeliveryDetails_34'
+import { ProductsPage } from '../page-objects/ProductPage_35'
+import { Navigation } from '../page-objects/Navigation_35'
+import { Checkout } from '../page-objects/Checkout_35'
+import { LoginPage } from '../page-objects/LoginPage_35'
+import { RegisterPage } from '../page-objects/RegisterPage_35'
+import { DeliveryDetails } from '../page-objects/DeliveryDetails_35'
 import { deliveryDetails as userAdress} from '../data/DeliveryDetails_data_26'
-import { PaymentPage } from '../page-objects/PaymentPage_34'
+import { PaymentPage } from '../page-objects/PaymentPage_35'
 import { paymentsDetails } from '../data/PaymentDetails_34'
 
 
@@ -48,6 +48,7 @@ test('New user full end-to-end test journey', async ({ page }) => {
 const paymentPage = new PaymentPage(page)
 await paymentPage.activateDiscount()
 await paymentPage.fillPaymentDetails(paymentsDetails)
+await paymentPage.completePayment()
 
 
 

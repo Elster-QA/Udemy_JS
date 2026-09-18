@@ -6,7 +6,7 @@ import { MyCheckout } from '../page-objects/MyCheckOut'
 import { MyLoginPage } from '../page-objects/MyLoginPage'
 import { MyRegPage } from '../page-objects/MyRegPage'
 import { MyDeliveryDetails } from '../page-objects/MyDeliveryDetails'
-import { deliveryDetails as userAdress } from '../data/MyDeliveryData'
+import { deliveryDetails as userAdress, paymentData } from '../data/MyDeliveryData'
 import { MyPaymentPage } from '../page-objects/MyPaymentPage'
 
 
@@ -46,6 +46,8 @@ test('name', async ({ page }) => {
 
      const paymentPage = new MyPaymentPage(page)
      await paymentPage.activeDiscount()
+     await paymentPage.entryPaymentData(paymentData)
+     await paymentPage.completePayment()
 
 
 
