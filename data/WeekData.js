@@ -19,3 +19,9 @@ export const adressData = {
     mobileNumber:'+380753578965'
 
 }
+
+export const itemData = {
+    Polo_T_Shirts: '[data-product-id="30"]',
+    Soft_Stretch_Jeans : '[data-product-id="33"]',
+    Blue_Top : '[data-product-id="1"]'
+}

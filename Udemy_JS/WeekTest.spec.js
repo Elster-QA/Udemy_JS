@@ -2,9 +2,9 @@ import { expect, test } from '@playwright/test'
 import { v4 as uuidv4 } from 'uuid'
 import { WeekNavigation } from '../page-objects/WeekNavigation'
 import { WeekLoginPage } from '../page-objects/WeekLoginPage'
-import { credData, credDataForReg, adressData } from '../data/WeekData'
+import { credData, credDataForReg, adressData, itemData } from '../data/WeekData'
 import { WeekSignupPage } from '../page-objects/WeekSignupPage'
-import { WeekProducts_Polo } from '../page-objects/WeekProducts_Polo'
+import { WeekProductsPage } from '../page-objects/WeekProductsPage'
 
 
 
@@ -24,16 +24,15 @@ test('name', async ({ page }) => {
     await signupPage.entryDataRegistry(credDataForReg)
     await signupPage.entryDataAdressInfo(adressData, credData)
     await signupPage.logOutAction()
-
     await loginPage.authAfterRegistry(emailField, credDataForReg, credData)
-
     await navigation.goToProductsPage()
 
-    const productsPage = new WeekProducts_Polo(page)
+    const productsPage = new WeekProductsPage(page)
     await productsPage.goToCatPolo()
-    await productsPage.addProductCardAndReturn(2)
-    await productsPage.addProductCardAndReturn(1)
-    await productsPage.addProductCardAndReturn(4)
+    await productsPage.addProductCardAndReturn(itemData.Polo_T_Shirts)
+    await productsPage.addProductCardAndReturn(itemData.Soft_Stretch_Jeans)
+    await productsPage.addProductCardAndReturn(itemData.Blue_Top)
+    
 
 
 
