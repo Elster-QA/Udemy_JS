@@ -27,17 +27,8 @@ export default defineConfig({
         headless: true,               // окно будет НЕ видно(true)
         launchOptions: { slowMo: 250 }, // замедление 0.5 сек между действиями
       },
-    },
-    // {
-    //   name: 'Mobile chrome',
-    //   use: { 
-    //     ...devices['Pixel 5'],//Это конфиг под мобильный браузер. В этой строке указываем девайс под которым будет проходить тест.
-    //     headless: true,               
-    //     launchOptions: { slowMo: 250 }, 
-    //   },
-    // },
-    // {
-    //   name: 'firefox',
+     },
+       //   name: 'firefox',
     //   use: { 
     //   ...devices['Desktop Firefox'],
     //   headless: false,
@@ -52,5 +43,25 @@ export default defineConfig({
     //   launchOptions: { slowMo: 1000 },
     //   },
     // },
+    /*Test browser for mobile*/
+    //  {
+    //   name: 'Mobile chrome',
+    //   use: { 
+    //     ...devices['Pixel 5'],//Это конфиг под мобильный браузер. В этой строке указываем девайс под которым будет проходить тест.
+    //     headless: true,               
+    //     launchOptions: { slowMo: 250 }, 
+    //   },
+    // },
+    //  {
+    //   name: 'Mobile safari',
+    //   use: { 
+    //     ...devices['iPhone 12'],//Это конфиг под мобильный браузер. В этой строке указываем девайс под которым будет проходить тест.
+    //     headless: true,               
+    //     launchOptions: { slowMo: 250 }, 
+    //   },
+    // },
+    
+
+    
   ],
 });

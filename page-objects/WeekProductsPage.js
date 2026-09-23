@@ -16,7 +16,7 @@ export class WeekProductsPage {
 
     }
 
-    goToCatPolo = async () => {
+    goToBrandsPolo = async () => {
         await this.brandsPoloButton.waitFor()
         await this.brandsPoloButton.click()
         await expect(this.page).toHaveURL(/\/Polo/)
@@ -29,7 +29,7 @@ export class WeekProductsPage {
         await this.mainCardsLocator.locator(itemData).click()
         await this.continueShopButton.click()
         await navigation.goToBasketPage()
-        // await cartPage.checkItem()
+        await cartPage.checkItem()
         await navigation.goToProductsPage()
         await this.poloCategoryReturnButton.click()
         await expect(this.page).toHaveURL(/\/Polo/)

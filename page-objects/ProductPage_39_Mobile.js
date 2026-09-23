@@ -1,10 +1,9 @@
 import { expect } from '@playwright/test'
 import { Navigation } from './Navigation_26'
+import { isDesktopViewport } from '../utils/isDesktopViewport'
 
-const isDesktopViewport = (page) => {
-    const size = page.viewportSize()
-    return size.width >= 600
-}
+
+
 
 export class ProductsPage {
     constructor(page) {
@@ -28,7 +27,7 @@ export class ProductsPage {
         expect(specificAddButton).toHaveText('Add to Basket')
         const navigation = new Navigation(this.page)
         //only desktop viewport
-        const basketCounterBeforeAdding = 0
+        let basketCounterBeforeAdding = 0
         if (isDesktopViewport(this.page)) {
              basketCounterBeforeAdding = await navigation.getBasketCount()
 

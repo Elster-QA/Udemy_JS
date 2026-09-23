@@ -28,7 +28,7 @@ test('name', async ({ page }) => {
     await navigation.goToProductsPage()
 
     const productsPage = new WeekProductsPage(page)
-    await productsPage.goToCatPolo()
+    await productsPage.goToBrandsPolo()
     await productsPage.addProductCardAndReturn(itemData.Polo_T_Shirts)
     await productsPage.addProductCardAndReturn(itemData.Soft_Stretch_Jeans)
     await productsPage.addProductCardAndReturn(itemData.Blue_Top)

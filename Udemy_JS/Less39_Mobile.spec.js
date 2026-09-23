@@ -1,15 +1,15 @@
 import { test, expect } from '@playwright/test'
 import { v4 as uuidv4 } from '../node_modules/uuid/dist'
-import { ProductsPage } from '../page-objects/ProductPage_38_Mobile'
-import { Navigation } from '../page-objects/Navigation_38_Mobile'
-import { Checkout } from '../page-objects/Checkout_38_Mobile'
-import { LoginPage } from '../page-objects/LoginPage_38_Mobile'
-import { RegisterPage } from '../page-objects/RegisterPage_38_Mobile'
-import { DeliveryDetails } from '../page-objects/DeliveryDetails_38_Mobile'
+import { ProductsPage } from '../page-objects/ProductPage_39_Mobile'
+import { Navigation } from '../page-objects/Navigation_39_Mobile'
+import { Checkout } from '../page-objects/Checkout_39_Mobile'
+import { LoginPage } from '../page-objects/LoginPage_39_Mobile'
+import { RegisterPage } from '../page-objects/RegisterPage_39_Mobile'
+import { DeliveryDetails } from '../page-objects/DeliveryDetails_39_Mobile'
 import { deliveryDetails as userAdress} from '../data/DeliveryDetails_data_26'
-import { PaymentPage } from '../page-objects/PaymentPage_38_Mobile'
+import { PaymentPage } from '../page-objects/PaymentPage_39_Mobile'
 import { paymentsDetails } from '../data/PaymentDetails_34'
-//ПОКА КОД НЕ РАБОЧИЙ, ДО СЛЕД. УРОКА
+
 
 test('New user full end-to-end test journey', async ({ page }) => {
     const productsPage = new ProductsPage(page)

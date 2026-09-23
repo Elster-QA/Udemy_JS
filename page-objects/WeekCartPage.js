@@ -7,7 +7,7 @@ export class WeekCartPage {
         this.emptyCartText = page.getByText('Cart is empty!')
         this.continueIfEmpty = page.getByRole('link', { name: 'here' })
 
-        this.itemRow = page.getByRole('row', { name: 'Product Image Premium Polo T-' })
+        this.mainRowInTable = page.locator('.table').locator('[id="product-30"]')
     }
 
     getItemCounter = async () => {
@@ -23,8 +23,8 @@ export class WeekCartPage {
     }
 
     checkItem = async () => {
-        await this.itemRow.waitFor()
-        expect(await this.itemRow.isVisible()).toBe(true)
+        await this.mainRowInTable.waitFor()
+        expect(await this.mainRowInTable.isVisible()).toBe(true)
     }
 
 }
