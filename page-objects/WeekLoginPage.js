@@ -22,9 +22,9 @@ export class WeekLoginPage {
 
     }
 
-    fillFieldMail = async (emailField) => {
+    fillFieldMail = async (genNewEmail) => {
         await this.mailField.waitFor()
-        await this.mailField.fill(emailField)
+        await this.mailField.fill(genNewEmail)
         await this.signupButton.waitFor()
         await this.signupButton.click()
         await expect(this.page).toHaveURL(/\/signup/)
@@ -33,10 +33,10 @@ export class WeekLoginPage {
 
     }
 
-    authAfterRegistry = async (emailField, credData) => {
+    authAfterRegistry = async (genNewEmail, credData) => {
 
         await this.loginField.waitFor()
-        await this.loginField.fill(emailField)
+        await this.loginField.fill(genNewEmail)
 
         await this.passwordField.waitFor()
         await this.passwordField.fill(credData.password)
@@ -45,7 +45,7 @@ export class WeekLoginPage {
         await this.loginButton.click()
         await expect(this.chipLoginUser).toBeVisible()
         await expect(this.chipLoginUser).toHaveText(new RegExp(credData.name))
-await this.page.pause()
+
 
     }
 

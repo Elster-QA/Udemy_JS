@@ -8,9 +8,7 @@ export class WeekProductsPage {
         this.page = page
         this.brandsPoloButton = page.locator('a[href="/brand_products/Polo"]')
         this.mainCardsLocator = page.locator('.productinfo')
-        this.addToCardButton = page.getByRole('button', { name: ' Add to cart' })
         this.continueShopButton = page.getByRole('button', { name: 'Continue Shopping' })
-
         this.brandsMadameButton = page.locator('a[href="/brand_products/Madame"]')
 
 
@@ -27,14 +25,18 @@ export class WeekProductsPage {
         await this.mainCardsLocator.locator(itemData).click()
         await this.continueShopButton.click()
     }
-    
-    
+
+
     goToBrandsMadame = async () => {
         await this.brandsMadameButton.waitFor()
         await this.brandsMadameButton.click()
         await expect(this.page).toHaveURL(/\/Madame/)
 
     }
+
+    // addPoloItem = async () => {
+
+    //  }
 
 
 
