@@ -33,13 +33,13 @@ export class WeekLoginPage {
 
     }
 
-    authAfterRegistry = async (emailField, credDataForReg, credData) => {
+    authAfterRegistry = async (emailField, credData) => {
 
         await this.loginField.waitFor()
         await this.loginField.fill(emailField)
 
         await this.passwordField.waitFor()
-        await this.passwordField.fill(credDataForReg.password)
+        await this.passwordField.fill(credData.password)
 
         await this.loginButton.waitFor()
         await this.loginButton.click()

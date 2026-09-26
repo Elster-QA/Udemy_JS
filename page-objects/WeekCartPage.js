@@ -1,5 +1,6 @@
 import { expect } from '@playwright/test'
 
+
 export class WeekCartPage {
     constructor(page) {
         this.page = page
@@ -7,7 +8,9 @@ export class WeekCartPage {
         this.emptyCartText = page.getByText('Cart is empty!')
         this.continueIfEmpty = page.getByRole('link', { name: 'here' })
 
-        this.mainRowInTable = page.locator('.table').locator('[id="product-30"]')
+        
+        this.itemRowTable = this.mainRowInTable = page.locator('.table')
+       
     }
 
     getItemCounter = async () => {
@@ -22,9 +25,9 @@ export class WeekCartPage {
 
     }
 
-    checkItem = async () => {
-        await this.mainRowInTable.waitFor()
-        expect(await this.mainRowInTable.isVisible()).toBe(true)
+    checkItemInBasket = async (itemDataInCart) => {
+        await this.itemRowTable.locator(itemDataInCart).waitFor()
+        expect(await this.itemRowTable.locator(itemDataInCart).isVisible()).toBe(true)
     }
 
 }

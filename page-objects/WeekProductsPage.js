@@ -1,6 +1,5 @@
 import { expect } from '@playwright/test'
-import { WeekNavigation } from './WeekNavigation'
-import { WeekCartPage } from './WeekCartPage'
+
 
 
 
@@ -11,7 +10,8 @@ export class WeekProductsPage {
         this.mainCardsLocator = page.locator('.productinfo')
         this.addToCardButton = page.getByRole('button', { name: ' Add to cart' })
         this.continueShopButton = page.getByRole('button', { name: 'Continue Shopping' })
-        this.poloCategoryReturnButton = page.locator('a[href="/brand_products/Polo"]')
+
+        this.brandsMadameButton = page.locator('a[href="/brand_products/Madame"]')
 
 
     }
@@ -22,32 +22,19 @@ export class WeekProductsPage {
         await expect(this.page).toHaveURL(/\/Polo/)
     }
 
-    addProductCardAndReturn = async (itemData) => {
-        const navigation = new WeekNavigation(this.page)
-        const cartPage = new WeekCartPage(this.page)
+    addProductCard = async (itemData) => {
         await this.mainCardsLocator.locator(itemData).waitFor()
         await this.mainCardsLocator.locator(itemData).click()
         await this.continueShopButton.click()
-        await navigation.goToBasketPage()
-        await cartPage.checkItem()
-        await navigation.goToProductsPage()
-        await this.poloCategoryReturnButton.click()
-        await expect(this.page).toHaveURL(/\/Polo/)
-
-
-        
-
-
-
-
-
-
-        //  if (await this.emptyCartText.isVisible()){await this.continueIfEmpty.click()}
-
-        
     }
+    
+    
+    goToBrandsMadame = async () => {
+        await this.brandsMadameButton.waitFor()
+        await this.brandsMadameButton.click()
+        await expect(this.page).toHaveURL(/\/Madame/)
 
-
+    }
 
 
 
