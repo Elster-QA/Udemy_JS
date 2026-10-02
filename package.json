@@ -10,12 +10,12 @@
   "author": "",
   "license": "ISC",
   "type": "commonjs",
-  
   "devDependencies": {
     "@playwright/test": "^1.56.1",
     "@types/node": "^24.9.2"
   },
   "dependencies": {
+    "dotenv": "^16.0.3",
     "node-fetch": "^2.6.7",
     "uuid": "^9.0.0"
   }
