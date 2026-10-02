@@ -4,3 +4,4 @@ export const paymentsDetails = {
     cardValidUntil:'12/10',
     cardCVC:'145'
 } 
+

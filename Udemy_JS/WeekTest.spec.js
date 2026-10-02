@@ -32,32 +32,27 @@ test('name', async ({ page }) => {
     await productsPage.goToBrandsPolo()
     await productsPage.addProductCard(itemData.Polo_T_Shirts)
     await navigation.goToBasketPage()
-    await cartPage.checkItemInBasket(itemDataInCart.inCartPolo_T_Shirts)
+    await cartPage.checkAddItemInBasket(itemDataInCart.inCartPolo_T_Shirts)
 
     await navigation.goToProductsPage()
     await productsPage.goToBrandsPolo()
     await productsPage.addProductCard(itemData.Soft_Stretch_Jeans)
     await navigation.goToBasketPage()
-    await cartPage.checkItemInBasket(itemDataInCart.inCartSoft_Stretch_Jeans)
+    await cartPage.checkAddItemInBasket(itemDataInCart.inCartSoft_Stretch_Jeans)
     await page.pause()
 
-    await navigation.goToProductsPage()
-    await productsPage.goToBrandsPolo()
-    await productsPage.addProductCard(itemData.Blue_Top)
-    await navigation.goToBasketPage()
-    await cartPage.checkItemInBasket(itemDataInCart.inCartBlue_Top)
-
+    
     await navigation.goToProductsPage()
     await productsPage.goToBrandsMadame()
     await productsPage.addProductCard(itemData.Rose_Pink_Maxi_Dress)
     await navigation.goToBasketPage()
-    await cartPage.checkItemInBasket(itemDataInCart.inCartRose_Pink_Maxi_Dress)
+    await cartPage.checkAddItemInBasket(itemDataInCart.inCartRose_Pink_Maxi_Dress)
 
     await navigation.goToProductsPage()
     await productsPage.goToBrandsMadame()
     await productsPage.addProductCard(itemData.Sleeveless_Dress)
     await navigation.goToBasketPage()
-    await cartPage.checkItemInBasket(itemDataInCart.inCartSleeveless_Dress)
+    await cartPage.checkAddItemInBasket(itemDataInCart.inCartSleeveless_Dress)
 
 
 

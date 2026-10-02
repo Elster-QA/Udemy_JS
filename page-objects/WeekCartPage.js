@@ -25,7 +25,7 @@ export class WeekCartPage {
 
     }
 
-    checkItemInBasket = async (itemDataInCart) => {
+    checkAddItemInBasket = async (itemDataInCart) => {
         await this.itemRowTable.locator(itemDataInCart).waitFor()
         expect(await this.itemRowTable.locator(itemDataInCart).isVisible()).toBe(true)
     }
