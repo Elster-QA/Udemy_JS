@@ -4,7 +4,7 @@ import * as nodeFetch from 'node-fetch'
 export const getLoginToken = async (adminDetails) => {
     const response = await nodeFetch('http://localhost:2221/api/login', {
         method: 'POST',
-        body: JSON.stringify ({"username": adminDetails.username,"password": adminDetails.password})//+
+        body: JSON.stringify ({"username": adminDetails.username,"password": process.env.ADMIN_PASSWORD})//+
 
          }) 
          console.log(process.env.ADMIN_PASSWORD)

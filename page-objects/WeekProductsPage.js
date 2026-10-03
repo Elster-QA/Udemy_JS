@@ -1,4 +1,5 @@
 import { expect } from '@playwright/test'
+import { WeekNavigation } from './WeekNavigation'
 
 
 
@@ -30,13 +31,13 @@ export class WeekProductsPage {
     goToBrandsMadame = async () => {
         await this.brandsMadameButton.waitFor()
         await this.brandsMadameButton.click()
+        const navigation = new WeekNavigation(this.page)
+        await navigation.ifVisibleAdClose()
         await expect(this.page).toHaveURL(/\/Madame/)
 
     }
 
-    // addPoloItem = async () => {
-
-    //  }
+    
 
 
 

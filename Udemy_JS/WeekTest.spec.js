@@ -1,5 +1,4 @@
 import { expect, test } from '@playwright/test'
-import { v4 as uuidv4 } from 'uuid'
 import { WeekNavigation } from '../page-objects/WeekNavigation'
 import { WeekLoginPage } from '../page-objects/WeekLoginPage'
 import { credData, adressData, itemData, itemDataInCart, genNewEmail } from '../data/WeekData'
@@ -39,7 +38,7 @@ test('name', async ({ page }) => {
     await productsPage.addProductCard(itemData.Soft_Stretch_Jeans)
     await navigation.goToBasketPage()
     await cartPage.checkAddItemInBasket(itemDataInCart.inCartSoft_Stretch_Jeans)
-    await page.pause()
+    
 
     
     await navigation.goToProductsPage()
@@ -53,6 +52,12 @@ test('name', async ({ page }) => {
     await productsPage.addProductCard(itemData.Sleeveless_Dress)
     await navigation.goToBasketPage()
     await cartPage.checkAddItemInBasket(itemDataInCart.inCartSleeveless_Dress)
+    await page.pause()
+
+    await cartPage.remFromBasketItem(itemData.Sleeveless_Dress)
+    await cartPage.checkRemItemFromBasket(itemData.Sleeveless_Dress)
+    await cartPage.remFromBasketItem(itemData.Soft_Stretch_Jeans)
+    await cartPage.checkRemItemFromBasket(itemData.Soft_Stretch_Jeans)
 
 
 

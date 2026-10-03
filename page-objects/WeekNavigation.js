@@ -19,6 +19,14 @@ export class WeekNavigation {
 
     }
 
+    ifVisibleAdClose = async () => {//Это метода "если"), конструкция проаста: если мы видим елемент (await this.adCloseButtonProductsPage.isVisible()), то делаем клик по нему ({await this.adCloseButtonProductsPage.click()})
+        if (await this.adCloseButtonProductsPage3.isVisible()) {
+            await this.adCloseButtonProductsPage3.click()
+        } else if (await this.adCloseButtonProductsPage2.isVisible()) {
+            await this.adCloseButtonProductsPage2.click()
+        }
+    }
+
     goToSignupPage = async () => {
         await this.loginButton.waitFor()
         await this.loginButton.click()
@@ -30,8 +38,7 @@ export class WeekNavigation {
     goToProductsPage = async () => {
         await this.productPageButton.waitFor()
         await this.productPageButton.click()
-        if (await this.adCloseButtonProductsPage3.isVisible()) {await this.adCloseButtonProductsPage3.click()}
-        else if (await this.adCloseButtonProductsPage2.isVisible()) {await this.adCloseButtonProductsPage2.click()}//Это метода "если"), конструкция проаста: если мы видим елемент (await this.adCloseButtonProductsPage.isVisible()), то делаем клик по нему ({await this.adCloseButtonProductsPage.click()})
+        await this.ifVisibleAdClose()//Это метода "если"), конструкция проаста: если мы видим елемент (await this.adCloseButtonProductsPage.isVisible()), то делаем клик по нему ({await this.adCloseButtonProductsPage.click()})
         await expect(this.page).toHaveURL(/\/products/)
     }
 
