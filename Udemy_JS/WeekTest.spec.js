@@ -1,10 +1,11 @@
 import { expect, test } from '@playwright/test'
 import { WeekNavigation } from '../page-objects/WeekNavigation'
 import { WeekLoginPage } from '../page-objects/WeekLoginPage'
-import { credData, adressData, itemData, itemDataInCart, genNewEmail } from '../data/WeekData'
+import { credData, adressData, itemData, itemDataInCart, itemDataViewProduct, genNewEmail } from '../data/WeekData'
 import { WeekSignupPage } from '../page-objects/WeekSignupPage'
 import { WeekProductsPage } from '../page-objects/WeekProductsPage'
 import { WeekCartPage } from '../page-objects/WeekCartPage'
+
 
 
 
@@ -23,8 +24,8 @@ test('name', async ({ page }) => {
     await signupPage.entryDataAdressInfo(adressData, credData)
     await signupPage.logOutAction()
     await loginPage.authAfterRegistry(genNewEmail, credData)
-    
-    
+
+
     const productsPage = new WeekProductsPage(page)
     const cartPage = new WeekCartPage(page)
     await navigation.goToProductsPage()
@@ -38,9 +39,9 @@ test('name', async ({ page }) => {
     await productsPage.addProductCard(itemData.Soft_Stretch_Jeans)
     await navigation.goToBasketPage()
     await cartPage.checkAddItemInBasket(itemDataInCart.inCartSoft_Stretch_Jeans)
-    
 
-    
+
+
     await navigation.goToProductsPage()
     await productsPage.goToBrandsMadame()
     await productsPage.addProductCard(itemData.Rose_Pink_Maxi_Dress)
@@ -52,12 +53,21 @@ test('name', async ({ page }) => {
     await productsPage.addProductCard(itemData.Sleeveless_Dress)
     await navigation.goToBasketPage()
     await cartPage.checkAddItemInBasket(itemDataInCart.inCartSleeveless_Dress)
-    await page.pause()
+
 
     await cartPage.remFromBasketItem(itemData.Sleeveless_Dress)
     await cartPage.checkRemItemFromBasket(itemData.Sleeveless_Dress)
     await cartPage.remFromBasketItem(itemData.Soft_Stretch_Jeans)
     await cartPage.checkRemItemFromBasket(itemData.Soft_Stretch_Jeans)
+
+
+    await navigation.goToProductsPage()
+    await productsPage.goToBrandsPolo()
+    await page.pause()
+    await productsPage.goToViewProduct(itemDataViewProduct.viewProdSoft_Stretch_Jeans)
+    await productsPage.setCountItemProduct('3')
+    await navigation.goToBasketPage()
+    //...to be continue
 
 
 

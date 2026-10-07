@@ -12,6 +12,12 @@ export class WeekProductsPage {
         this.continueShopButton = page.getByRole('button', { name: 'Continue Shopping' })
         this.brandsMadameButton = page.locator('a[href="/brand_products/Madame"]')
 
+        this.viewProdCart = page.locator('.choose')
+        this.prodInfo = page.locator('.product-information')
+        this.inputCountProd = page.locator('#quantity')
+        this.addButtonFromProdPage = page.getByRole('button', { name: ' Add to cart' })
+
+
 
     }
 
@@ -37,7 +43,27 @@ export class WeekProductsPage {
 
     }
 
-    
+    goToViewProduct = async (itemDataViewProduct) => {
+        await this.viewProdCart.locator(itemDataViewProduct).waitFor()
+        await this.viewProdCart.locator(itemDataViewProduct).click()
+
+    }
+
+    setCountItemProduct = async (index) => {
+        await this.inputCountProd.waitFor()
+        await this.inputCountProd.fill(index)
+        await this.addButtonFromProdPage.waitFor()
+        await this.addButtonFromProdPage.click()
+        await this.continueShopButton.waitFor()
+        await this.continueShopButton.click()
+        const countBeforeAdd = parseInt (await this.inputCountProd.inputValue(), 10)
+        console.warn({countBeforeAdd})
+        // const countBeforeAdd = parseInt(await this.inputCountProd.inputValue(), 10)
+
+
+
+    }
+
 
 
 

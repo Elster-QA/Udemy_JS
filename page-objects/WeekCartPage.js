@@ -4,12 +4,11 @@ import { expect } from '@playwright/test'
 export class WeekCartPage {
     constructor(page) {
         this.page = page
-        // this.basketcounter = page.getByRole('button', { name: '1' })
-        // this.emptyCartText = page.getByText('Cart is empty!')
-        // this.continueIfEmpty = page.getByRole('link', { name: 'here' })
 
         this.itemRowTable = this.mainRowInTable = page.locator('.table')
         this.removeButtonInRow = page.locator('.cart_delete')
+
+        
 
     }
 
@@ -28,7 +27,8 @@ export class WeekCartPage {
     checkRemItemFromBasket = async (itemData) => {
         expect(await this.itemRowTable.locator(itemData).isVisible()).toBe(false)
 
-     }
+    }
 
+    
 
 }
