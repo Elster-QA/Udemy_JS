@@ -10,6 +10,8 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'line',
 
+  globalSetup: require.resolve('./utils/globalSetup.js'),//Прописали для применения зависимости "dotenv" для всех тестов/классов в которых используется pocess.env.ADMIN_PASSWORD
+
    
   
 

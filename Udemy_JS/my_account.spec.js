@@ -1,5 +1,3 @@
-import * as dotenv from '../node_modules/dotenv'//Зависимость для работы с .env файлоМ. В файле хранятся креды. Зависимость передает данные из .env в process.env., а process.env. передает их уже в тест.
-dotenv.config()//Вызов зависимости 
 import { expect, test } from '@playwright/test'
 import { MyAccountPage } from '../page-objects/MyAccountPage'
 import { getLoginToken } from '../api-calls/getLoginToken'
