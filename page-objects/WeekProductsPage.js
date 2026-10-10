@@ -21,6 +21,9 @@ export class WeekProductsPage {
         this.catWomen = page.locator('a[href="#Women"]')
         this.catWomenTOPS = page.locator('a[href="/category_products/2"]')
 
+        this.searchInput = page.locator('#search_product')
+        this.searchButton = page.locator('#submit_search')
+
 
 
 
@@ -82,7 +85,13 @@ export class WeekProductsPage {
     }
 
 
+    checkSearchField = async (index) => { 
+        await this.searchInput.waitFor()
+        await this.searchInput.fill(index)
 
+        await this.searchButton.waitFor()
+        await this.searchButton.click()
+    }
 
 
 

@@ -68,12 +68,14 @@ test('name', async ({ page }) => {
     await productsPage.goToViewProduct(itemDataViewProduct.viewProdSoft_Stretch_Jeans)
     await productsPage.setCountItemProduct('9')
     const itemBeforeAdd = await productsPage.getCountItemInViewProduct()
-    await page.pause()
+
     await navigation.goToBasketPage()
     const itemAfterAdd = await cartPage.getCountItemInBasket(itemDataInCart.inCartSoft_Stretch_Jeans)
     expect(itemBeforeAdd).toEqual(itemAfterAdd)
+    await page.pause()
 
     await navigation.goToProductsPage()
+    await productsPage.checkSearchField('Polo')//Think about it
     await productsPage.goToCatWomenTOPS()
     await productsPage.goToViewProduct(itemDataViewProduct.viewProdLace_Top)
     await productsPage.setCountItemProduct('5')
