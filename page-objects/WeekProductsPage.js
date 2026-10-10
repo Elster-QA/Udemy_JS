@@ -34,9 +34,9 @@ export class WeekProductsPage {
         await expect(this.page).toHaveURL(/\/Polo/)
     }
 
-    addProductCard = async (itemData) => {
-        await this.mainCardsLocator.locator(itemData).waitFor()
-        await this.mainCardsLocator.locator(itemData).click()
+    addProductCard = async (itemDataOnProductsPage) => {
+        await this.mainCardsLocator.locator(itemDataOnProductsPage).waitFor()
+        await this.mainCardsLocator.locator(itemDataOnProductsPage).click()
         await this.continueShopButton.click()
     }
 

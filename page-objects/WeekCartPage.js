@@ -7,7 +7,7 @@ export class WeekCartPage {
 
         this.itemRowTable = this.mainRowInTable = page.locator('.table')
         this.removeButtonInRow = page.locator('.cart_delete')
-        // this.countfield = page.locator('.cart_quantity').locator('.disabled')
+        
 
 
 
@@ -20,13 +20,13 @@ export class WeekCartPage {
         expect(await this.itemRowTable.locator(itemDataInCart).isVisible()).toBe(true)
     }
 
-    remFromBasketItem = async (itemData) => {
-        await this.removeButtonInRow.locator(itemData).waitFor()
-        await this.removeButtonInRow.locator(itemData).click()
+    remFromBasketItem = async (itemDataOnProductsPage) => {
+        await this.removeButtonInRow.locator(itemDataOnProductsPage).waitFor()
+        await this.removeButtonInRow.locator(itemDataOnProductsPage).click()
     }
 
-    checkRemItemFromBasket = async (itemData) => {
-        expect(await this.itemRowTable.locator(itemData).isVisible()).toBe(false)
+    checkRemItemFromBasket = async (itemDataOnProductsPage) => {
+        expect(await this.itemRowTable.locator(itemDataOnProductsPage).isVisible()).toBe(false)
 
     }
 

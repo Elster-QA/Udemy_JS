@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test'
 import { WeekNavigation } from '../page-objects/WeekNavigation'
 import { WeekLoginPage } from '../page-objects/WeekLoginPage'
-import { credData, adressData, itemData, itemDataInCart, itemDataViewProduct, genNewEmail } from '../data/WeekData'
+import { credData, adressData, itemDataOnProductsPage, itemDataInCart, itemDataViewProduct, genNewEmail } from '../data/WeekData'
 import { WeekSignupPage } from '../page-objects/WeekSignupPage'
 import { WeekProductsPage } from '../page-objects/WeekProductsPage'
 import { WeekCartPage } from '../page-objects/WeekCartPage'
@@ -31,13 +31,13 @@ test('name', async ({ page }) => {
     const cartPage = new WeekCartPage(page)
     await navigation.goToProductsPage()
     await productsPage.goToBrandsPolo()
-    await productsPage.addProductCard(itemData.Polo_T_Shirts)
+    await productsPage.addProductCard(itemDataOnProductsPage.Polo_T_Shirts)
     await navigation.goToBasketPage()
     await cartPage.checkAddItemInBasket(itemDataInCart.inCartPolo_T_Shirts)
 
     await navigation.goToProductsPage()
     await productsPage.goToBrandsPolo()
-    await productsPage.addProductCard(itemData.Soft_Stretch_Jeans)
+    await productsPage.addProductCard(itemDataOnProductsPage.Soft_Stretch_Jeans)
     await navigation.goToBasketPage()
     await cartPage.checkAddItemInBasket(itemDataInCart.inCartSoft_Stretch_Jeans)
 
@@ -45,21 +45,21 @@ test('name', async ({ page }) => {
 
     await navigation.goToProductsPage()
     await productsPage.goToBrandsMadame()
-    await productsPage.addProductCard(itemData.Rose_Pink_Maxi_Dress)
+    await productsPage.addProductCard(itemDataOnProductsPage.Rose_Pink_Maxi_Dress)
     await navigation.goToBasketPage()
     await cartPage.checkAddItemInBasket(itemDataInCart.inCartRose_Pink_Maxi_Dress)
 
     await navigation.goToProductsPage()
     await productsPage.goToBrandsMadame()
-    await productsPage.addProductCard(itemData.Sleeveless_Dress)
+    await productsPage.addProductCard(itemDataOnProductsPage.Sleeveless_Dress)
     await navigation.goToBasketPage()
     await cartPage.checkAddItemInBasket(itemDataInCart.inCartSleeveless_Dress)
 
 
-    await cartPage.remFromBasketItem(itemData.Sleeveless_Dress)
-    await cartPage.checkRemItemFromBasket(itemData.Sleeveless_Dress)
-    await cartPage.remFromBasketItem(itemData.Soft_Stretch_Jeans)
-    await cartPage.checkRemItemFromBasket(itemData.Soft_Stretch_Jeans)
+    await cartPage.remFromBasketItem(itemDataOnProductsPage.Sleeveless_Dress)
+    await cartPage.checkRemItemFromBasket(itemDataOnProductsPage.Sleeveless_Dress)
+    await cartPage.remFromBasketItem(itemDataOnProductsPage.Soft_Stretch_Jeans)
+    await cartPage.checkRemItemFromBasket(itemDataOnProductsPage.Soft_Stretch_Jeans)
 
 
     await navigation.goToProductsPage()
@@ -79,8 +79,8 @@ test('name', async ({ page }) => {
     await productsPage.setCountItemProduct('5')
     const countBeforeAdd = await productsPage.getCountItemInViewProduct()
     await navigation.goToBasketPage()
-    const countfterAdd = await cartPage.getCountItemInBasket(itemDataInCart.inCartLace_Top)
-    expect(countBeforeAdd).toEqual(countfterAdd)
+    const countAfterAdd = await cartPage.getCountItemInBasket(itemDataInCart.inCartLace_Top)
+    expect(countBeforeAdd).toEqual(countAfterAdd)
 
 
 

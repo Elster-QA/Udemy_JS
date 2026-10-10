@@ -15,7 +15,7 @@ export const adressData = {
 
 }
 
-export const itemData = {
+export const itemDataOnProductsPage = {
     Polo_T_Shirts: '[data-product-id="30"]',
     Soft_Stretch_Jeans: '[data-product-id="33"]',
     Blue_Top: '[data-product-id="1"]',

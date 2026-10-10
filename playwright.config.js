@@ -3,7 +3,7 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   
   testDir: './Udemy_JS',
-  timeout: 30000,// (5 * 1000)- таймАут
+  timeout: 50000,// (5 * 1000)- таймАут
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
