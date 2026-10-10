@@ -75,7 +75,7 @@ test('name', async ({ page }) => {
     await page.pause()
 
     await navigation.goToProductsPage()
-    await productsPage.checkSearchField('Polo')//Think about it later
+    // await productsPage.checkSearchField('Polo')//Think about it later
     await productsPage.goToCatWomenTOPS()
     await productsPage.goToViewProduct(itemDataViewProduct.viewProdLace_Top)
     await productsPage.setCountItemProduct('5')

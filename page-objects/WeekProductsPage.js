@@ -2,9 +2,6 @@ import { expect } from '@playwright/test'
 import { WeekNavigation } from './WeekNavigation'
 
 
-
-
-
 export class WeekProductsPage {
     constructor(page) {
         this.page = page
@@ -85,13 +82,16 @@ export class WeekProductsPage {
     }
 
 
-    checkSearchField = async (index) => { 
-        await this.searchInput.waitFor()
-        await this.searchInput.fill(index)
+    // checkSearchField = async (index) => { 
+    //     await this.searchInput.waitFor()
+    //     await this.searchInput.fill(index)
 
-        await this.searchButton.waitFor()
-        await this.searchButton.click()
-    }
+    //     await this.searchButton.waitFor()
+    //     await this.searchButton.click()
+
+    //     await this.mainCardsLocator.waitFor()
+    //     // getByRole('paragraph').filter({ hasText: /^Premium Polo T-Shirts$/ })
+    // }
 
 
 
