@@ -7,8 +7,9 @@ export class WeekCartPage {
 
         this.itemRowTable = this.mainRowInTable = page.locator('.table')
         this.removeButtonInRow = page.locator('.cart_delete')
+        // this.countfield = page.locator('.cart_quantity').locator('.disabled')
 
-        
+
 
     }
 
@@ -29,6 +30,10 @@ export class WeekCartPage {
 
     }
 
-    
+    getCountItemInBasket = async (itemDataInCart) => {
+        const valueInBasket = parseInt(await this.itemRowTable.locator(itemDataInCart).locator('.disabled').innerText(), 10)
+        return valueInBasket
+        
+     }
 
 }

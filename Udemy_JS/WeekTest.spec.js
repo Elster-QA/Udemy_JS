@@ -9,6 +9,7 @@ import { WeekCartPage } from '../page-objects/WeekCartPage'
 
 
 
+
 test('name', async ({ page }) => {
 
     const navigation = new WeekNavigation(page)
@@ -63,10 +64,28 @@ test('name', async ({ page }) => {
 
     await navigation.goToProductsPage()
     await productsPage.goToBrandsPolo()
-    await page.pause()
+
     await productsPage.goToViewProduct(itemDataViewProduct.viewProdSoft_Stretch_Jeans)
-    await productsPage.setCountItemProduct('3')
+    await productsPage.setCountItemProduct('9')
+    const itemBeforeAdd = await productsPage.getCountItemInViewProduct()
+    await page.pause()
     await navigation.goToBasketPage()
+    const itemAfterAdd = await cartPage.getCountItemInBasket(itemDataInCart.inCartSoft_Stretch_Jeans)
+    expect(itemBeforeAdd).toEqual(itemAfterAdd)
+
+    await navigation.goToProductsPage()
+    await productsPage.goToCatWomenTOPS()
+    await productsPage.goToViewProduct(itemDataViewProduct.viewProdLace_Top)
+    await productsPage.setCountItemProduct('5')
+    const countBeforeAdd = await productsPage.getCountItemInViewProduct()
+    await navigation.goToBasketPage()
+    const countfterAdd = await cartPage.getCountItemInBasket(itemDataInCart.inCartLace_Top)
+    expect(countBeforeAdd).toEqual(countfterAdd)
+
+
+
+
+
     //...to be continue
 
 

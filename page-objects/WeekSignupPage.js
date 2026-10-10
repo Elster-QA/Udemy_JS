@@ -29,11 +29,11 @@ export class WeekSignupPage {
         this.logOutButton = page.getByRole('link', { name: ' Logout' })
     }
 
-    entryDataRegistry = async (credData) => {
+    entryDataRegistry = async () => {
         await this.maleRadioButton.waitFor()
         await this.maleRadioButton.click()
         await this.passField.waitFor()
-        await this.passField.fill(credData.password)
+        await this.passField.fill(process.env.WEEK_PASS)
 
         await this.dayDropList.waitFor()
         await this.dayDropList.selectOption('5')
@@ -48,7 +48,7 @@ export class WeekSignupPage {
 
     }
 
-    entryDataAdressInfo = async (adressData, credData) => {
+    entryDataAdressInfo = async (adressData) => {
         await this.firstNameField.waitFor()
         await this.firstNameField.fill(adressData.firstName)
         await this.lastNameField.waitFor()
@@ -81,7 +81,7 @@ export class WeekSignupPage {
         await this.continueButton.click()
 
         await expect(this.chipLoginUser).toBeVisible()
-        await expect(this.chipLoginUser).toHaveText(new RegExp(credData.name))// new RegExp(credData.name) — превращает значение credData.name в регулярное выражение.new RegExp(credData.name) - используется как регулярка для credData.name (аргумента и значения) 
+        await expect(this.chipLoginUser).toHaveText(new RegExp(process.env.WEEK_NAME))// new RegExp(credData.name) — превращает значение credData.name в регулярное выражение.new RegExp(credData.name) - используется как регулярка для credData.name (аргумента и значения) 
 
 
     }

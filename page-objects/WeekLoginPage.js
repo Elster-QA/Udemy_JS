@@ -15,9 +15,9 @@ export class WeekLoginPage {
 
     }
 
-    fillFieldName = async (credData) => {
+    fillFieldName = async () => {
         await this.signUpField.waitFor()
-        await this.signUpField.fill(credData.name)
+        await this.signUpField.fill(process.env.WEEK_NAME)
 
 
     }
@@ -33,18 +33,17 @@ export class WeekLoginPage {
 
     }
 
-    authAfterRegistry = async (genNewEmail, credData) => {
+    authAfterRegistry = async (genNewEmail) => {
 
         await this.loginField.waitFor()
         await this.loginField.fill(genNewEmail)
-
         await this.passwordField.waitFor()
-        await this.passwordField.fill(credData.password)
-
+        await this.passwordField.fill(process.env.WEEK_PASS)//credData.password
+        
         await this.loginButton.waitFor()
         await this.loginButton.click()
         await expect(this.chipLoginUser).toBeVisible()
-        await expect(this.chipLoginUser).toHaveText(new RegExp(credData.name))
+        await expect(this.chipLoginUser).toHaveText(new RegExp(process.env.WEEK_NAME))
 
 
     }

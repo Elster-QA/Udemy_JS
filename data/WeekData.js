@@ -1,10 +1,5 @@
 import { v4 as uuidv4 } from '../node_modules/uuid'
 
-export const credData = {
-    name: 'John_Miller',
-    password: 'Aa_1+'
-}
-
 
 export const adressData = {
     firstName: 'John',
@@ -34,7 +29,8 @@ export const itemDataInCart = {
     inCartSoft_Stretch_Jeans: '#product-33',
     inCartBlue_Top: '#product-1',
     inCartRose_Pink_Maxi_Dress: '#product-38',
-    inCartSleeveless_Dress: '#product-3'
+    inCartSleeveless_Dress: '#product-3',
+    inCartLace_Top: '#product-42'
 }
 
 export const itemDataViewProduct = {
@@ -43,6 +39,7 @@ export const itemDataViewProduct = {
     viewProdBlue_Top: 'a[href="/product_details/1"]',
     viewProdRose_Pink_Maxi_Dress:'a[href="/product_details/38"]',
     viewProdSleeveless_Dress:'a[href="/product_details/3"]',
+    viewProdLace_Top:'a[href="/product_details/42"]',
     
 
 }

@@ -4,6 +4,7 @@ import { WeekNavigation } from './WeekNavigation'
 
 
 
+
 export class WeekProductsPage {
     constructor(page) {
         this.page = page
@@ -16,6 +17,12 @@ export class WeekProductsPage {
         this.prodInfo = page.locator('.product-information')
         this.inputCountProd = page.locator('#quantity')
         this.addButtonFromProdPage = page.getByRole('button', { name: ' Add to cart' })
+
+        this.catWomen = page.locator('a[href="#Women"]')
+        this.catWomenTOPS = page.locator('a[href="/category_products/2"]')
+
+
+
 
 
 
@@ -56,13 +63,32 @@ export class WeekProductsPage {
         await this.addButtonFromProdPage.click()
         await this.continueShopButton.waitFor()
         await this.continueShopButton.click()
-        const countBeforeAdd = parseInt (await this.inputCountProd.inputValue(), 10)
-        console.warn({countBeforeAdd})
-        // const countBeforeAdd = parseInt(await this.inputCountProd.inputValue(), 10)
 
 
 
     }
+
+    getCountItemInViewProduct = async () => {
+        const countBeforeAdd = parseInt(await this.inputCountProd.inputValue(), 10)
+        return countBeforeAdd
+    }
+
+    goToCatWomenTOPS = async () => {
+        await this.catWomen.waitFor()
+        await this.catWomen.click()
+        await this.catWomenTOPS.waitFor()
+        await this.catWomenTOPS.click()
+        await expect(this.page).toHaveURL(/\/category_products\/2/)
+    }
+
+
+
+
+
+
+
+
+
 
 
 
