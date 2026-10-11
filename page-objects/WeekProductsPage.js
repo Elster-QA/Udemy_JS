@@ -92,6 +92,9 @@ export class WeekProductsPage {
         await this.searchButton.click()
 
         await this.nameItemProduct.isVisible()
+        const textProduct = await this.nameItemProduct.innerText()
+        console.warn({textProduct})
+         expect(textProduct).toBe(textProduct)//new RegEx(Polo)
         // getByRole('paragraph').filter({ hasText: /^Premium Polo T-Shirts$/ })
     }
 
