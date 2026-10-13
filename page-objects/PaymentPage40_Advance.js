@@ -20,7 +20,7 @@ export class PaymentPage {
     activateDiscount = async () => {
         await this.discountFrame.waitFor()
         const discountCodeInFrame = await this.discountFrame.innerText()
-        console.log(discountCodeInFrame)
+        console.log({discountCodeInFrame})
         await this.discountField.waitFor()
         await this.discountField.fill(discountCodeInFrame)
         await expect(this.discountField).toHaveValue(discountCodeInFrame)//Использовался в предыдущем уроке, в этом новый вариант ввода символов в поле(в поле с задержкой ввода)

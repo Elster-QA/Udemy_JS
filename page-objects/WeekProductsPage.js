@@ -21,9 +21,8 @@ export class WeekProductsPage {
         this.searchInput = page.locator('#search_product')
         this.searchButton = page.locator('#submit_search')
 
-        this.nameItemProduct = page.getByRole('paragraph').filter({ hasText: /^Premium Polo T-Shirts$/ })//HardCore (HotFix)
 
-
+        this.nameItemProduct = this.mainCardsLocator.locator('p')
 
 
 
@@ -84,18 +83,19 @@ export class WeekProductsPage {
     }
 
 
-    checkSearchField = async (index) => { 
+    checkSearchField = async (index) => {
         await this.searchInput.waitFor()
         await this.searchInput.fill(index)
 
         await this.searchButton.waitFor()
         await this.searchButton.click()
-
+        const countFindItem = await this.nameItemProduct.count()
+        console.warn({ countFindItem })
         await this.nameItemProduct.isVisible()
         const textProduct = await this.nameItemProduct.innerText()
-        console.warn({textProduct})
-         expect(textProduct).toBe(textProduct)//new RegEx(Polo)
-        // getByRole('paragraph').filter({ hasText: /^Premium Polo T-Shirts$/ })
+        console.warn({ textProduct })
+        expect(textProduct.toLowerCase()).toContain(index.toLowerCase())//toContain(expected) — проверяет, содержит ли строка expected указанную подстроку//.toLowerCase() — переводит обе строки в нижний регистр, чтобы игнорировать различия в регистре букв.
+
     }
 
 
