@@ -89,22 +89,22 @@ export class WeekProductsPage {
 
         await this.searchButton.waitFor()
         await this.searchButton.click()
-        
+
         if (await this.nameItemProduct.count() === 1) {
             const textProduct = await this.nameItemProduct.innerText()
             expect(textProduct.toLowerCase()).toContain(index.toLowerCase())
-            
+
         } else if (await this.nameItemProduct.count() > 1) {
             const allTextProduct = await this.nameItemProduct.allInnerTexts()
-           
+            expect(allTextProduct.join(' ').toLowerCase()).toContain(index.toLowerCase())
         }
         // console.log( textProduct )
         // await this.nameItemProduct.isVisible()
-        
-        
-        
+
+
+
         // console.warn({ allTextProduct })
-        expect(textProduct.toLowerCase()).toContain(index.toLowerCase())//toContain(expected) — проверяет, содержит ли строка expected указанную подстроку//.toLowerCase() — переводит обе строки в нижний регистр, чтобы игнорировать различия в регистре букв.
+        // expect(textProduct.toLowerCase()).toContain(index.toLowerCase())//toContain(expected) — проверяет, содержит ли строка expected указанную подстроку//.toLowerCase() — переводит обе строки в нижний регистр, чтобы игнорировать различия в регистре букв.
 
     }
 

@@ -26,7 +26,7 @@ export class WeekCartPage {
     }
 
     checkRemItemFromBasket = async (itemDataOnProductsPage) => {
-        expect(await this.itemRowTable.locator(itemDataOnProductsPage).isVisible()).toBe(false)
+        expect(await this.itemRowTable.locator(itemDataOnProductsPage)).toBeHidden({ timeout: 3000 })
 
     }
 

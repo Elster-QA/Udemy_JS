@@ -10,7 +10,7 @@ import { WeekCartPage } from '../page-objects/WeekCartPage'
 
 
 
-test.skip('name', async ({ page }) => {
+test('name', async ({ page }) => {
 
     const navigation = new WeekNavigation(page)
     await navigation.visit()
@@ -55,7 +55,7 @@ test.skip('name', async ({ page }) => {
     await navigation.goToBasketPage()
     await cartPage.checkAddItemInBasket(itemDataInCart.inCartSleeveless_Dress)
 
-await page.pause()
+
     await cartPage.remFromBasketItem(itemDataOnProductsPage.Sleeveless_Dress)
     await cartPage.checkRemItemFromBasket(itemDataOnProductsPage.Sleeveless_Dress)
     await cartPage.remFromBasketItem(itemDataOnProductsPage.Soft_Stretch_Jeans)
@@ -75,7 +75,7 @@ await page.pause()
     
 await page.pause()
     await navigation.goToProductsPage()
-    await productsPage.checkSearchField('Polo')//Think about it later
+    await productsPage.checkSearchField('Top')//Think about it later
     await productsPage.goToCatWomenTOPS()
     await productsPage.goToViewProduct(itemDataViewProduct.viewProdLace_Top)
     await productsPage.setCountItemProduct('5')
