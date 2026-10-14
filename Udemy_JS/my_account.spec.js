@@ -17,13 +17,12 @@ test('My Account using cookie injection and MOCK network request', async ({ page
 
     const myAcount = new MyAccountPage(page)
     await myAcount.visit()
-    await page.pause()
     await page.evaluate((loginTokenInsideBrowserCode) => {
         document.cookie = 'token=' + loginTokenInsideBrowserCode //Получаем чистый loginToken, передаём его в параметр evaluate(), добавляем к нему token= и через document.cookie устанавливаем готовую cookie на текущей странице.
     }, loginToken)
     await myAcount.visit()
     await myAcount.checkHeader()
-    await page.pause()
+    
 
 
 })

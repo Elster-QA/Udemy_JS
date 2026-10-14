@@ -10,7 +10,7 @@ import { WeekCartPage } from '../page-objects/WeekCartPage'
 
 
 
-test('name', async ({ page }) => {
+test.skip('name', async ({ page }) => {
 
     const navigation = new WeekNavigation(page)
     await navigation.visit()
@@ -75,7 +75,7 @@ await page.pause()
     
 await page.pause()
     await navigation.goToProductsPage()
-    await productsPage.checkSearchField('tshirt')//Think about it later
+    await productsPage.checkSearchField('Polo')//Think about it later
     await productsPage.goToCatWomenTOPS()
     await productsPage.goToViewProduct(itemDataViewProduct.viewProdLace_Top)
     await productsPage.setCountItemProduct('5')

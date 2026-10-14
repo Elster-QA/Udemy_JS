@@ -89,14 +89,14 @@ export class WeekProductsPage {
 
         await this.searchButton.waitFor()
         await this.searchButton.click()
-        // const countFindItem = await this.nameItemProduct.count()
+        
         if (await this.nameItemProduct.count() === 1) {
             const textProduct = await this.nameItemProduct.innerText()
+            expect(textProduct.toLowerCase()).toContain(index.toLowerCase())
             
-            console.log( textProduct )
         } else if (await this.nameItemProduct.count() > 1) {
             const allTextProduct = await this.nameItemProduct.allInnerTexts()
-            console.log( allTextProduct )
+           
         }
         // console.log( textProduct )
         // await this.nameItemProduct.isVisible()

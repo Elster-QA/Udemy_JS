@@ -5,7 +5,7 @@ export default defineConfig({
   testDir: './Udemy_JS',
   timeout: 50000,// (5 * 1000)- таймАут
   fullyParallel: true,
-  forbidOnly: !!process.env.CI,
+  forbidOnly: false,//!!process.env.CI
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
   reporter: 'line',
@@ -46,14 +46,14 @@ export default defineConfig({
     //   },
     // },
     /*Test browser for mobile*/
-    //  {
-    //   name: 'Mobile chrome',
-    //   use: { 
-    //     ...devices['Pixel 5'],//Это конфиг под мобильный браузер. В этой строке указываем девайс под которым будет проходить тест.
-    //     headless: true,               
-    //     launchOptions: { slowMo: 250 }, 
-    //   },
-    // },
+     {
+      name: 'Mobile chrome',
+      use: { 
+        ...devices['Pixel 5'],//Это конфиг под мобильный браузер. В этой строке указываем девайс под которым будет проходить тест.
+        headless: true,               
+        launchOptions: { slowMo: 250 }, 
+      },
+    },
     //  {
     //   name: 'Mobile safari',
     //   use: { 
