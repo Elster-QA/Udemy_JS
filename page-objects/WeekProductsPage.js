@@ -99,7 +99,7 @@ export class WeekProductsPage {
             console.log( allTextProduct )
         }
         // console.log( textProduct )
-        // await this.nameItemProduct.isVisible()+++
+        // await this.nameItemProduct.isVisible()
         
         
         
