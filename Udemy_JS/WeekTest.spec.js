@@ -64,7 +64,7 @@ test('name', async ({ page }) => {
 
     await navigation.goToProductsPage()
     await productsPage.goToBrandsPolo()
-
+await page.pause()
     await productsPage.goToViewProduct(itemDataViewProduct.viewProdSoft_Stretch_Jeans)
     await productsPage.setCountItemProduct('9')
     const itemBeforeAdd = await productsPage.getCountItemInViewProduct()
@@ -75,7 +75,7 @@ test('name', async ({ page }) => {
     
 await page.pause()
     await navigation.goToProductsPage()
-    await productsPage.checkSearchField('Top')//Think about it later
+    await productsPage.checkSearchField('top')//Think about it later
     await productsPage.goToCatWomenTOPS()
     await productsPage.goToViewProduct(itemDataViewProduct.viewProdLace_Top)
     await productsPage.setCountItemProduct('5')

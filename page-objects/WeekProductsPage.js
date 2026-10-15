@@ -86,14 +86,12 @@ export class WeekProductsPage {
     checkSearchField = async (index) => {
         await this.searchInput.waitFor()
         await this.searchInput.fill(index)
-
         await this.searchButton.waitFor()
         await this.searchButton.click()
-
+        
         if (await this.nameItemProduct.count() === 1) {
             const textProduct = await this.nameItemProduct.innerText()
             expect(textProduct.toLowerCase()).toContain(index.toLowerCase())
-
         } else if (await this.nameItemProduct.count() > 1) {
             const allTextProduct = await this.nameItemProduct.allInnerTexts()
             expect(allTextProduct.join(' ').toLowerCase()).toContain(index.toLowerCase())
