@@ -5,6 +5,8 @@ import { credData, adressData, itemDataOnProductsPage, itemDataInCart, itemDataV
 import { WeekSignupPage } from '../page-objects/WeekSignupPage'
 import { WeekProductsPage } from '../page-objects/WeekProductsPage'
 import { WeekCartPage } from '../page-objects/WeekCartPage'
+import { WeekContactUsPage } from '../page-objects/WeekContactUsPage'
+
 
 
 
@@ -64,7 +66,7 @@ test('name', async ({ page }) => {
 
     await navigation.goToProductsPage()
     await productsPage.goToBrandsPolo()
-await page.pause()
+
     await productsPage.goToViewProduct(itemDataViewProduct.viewProdSoft_Stretch_Jeans)
     await productsPage.setCountItemProduct('9')
     const itemBeforeAdd = await productsPage.getCountItemInViewProduct()
@@ -83,6 +85,11 @@ await page.pause()
     await navigation.goToBasketPage()
     const countAfterAdd = await cartPage.getCountItemInBasket(itemDataInCart.inCartLace_Top)
     expect(countBeforeAdd).toEqual(countAfterAdd)
+
+    await navigation.goToContactUsPage()
+    const contactUsPage = new WeekContactUsPage(page)
+    await contactUsPage.entryDataToField()
+    
 
 
 

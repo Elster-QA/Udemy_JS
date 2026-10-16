@@ -9,6 +9,7 @@ export class WeekNavigation {
         this.adCloseButtonProductsPage3 = page.locator('iframe[name="aswift_3"]').contentFrame().getByRole('button', { name: 'Close ad' })
         this.adCloseButtonProductsPage2 = page.locator('iframe[name="aswift_2"]').contentFrame().getByRole('button', { name: 'Close ad' })
         this.basketPageButton = page.getByRole('link', { name: ' Cart' })
+        this.contactUsButton = page.locator('a[href="/contact_us"]')
 
     }
 
@@ -47,6 +48,12 @@ export class WeekNavigation {
         await this.basketPageButton.click()
         await expect(this.page).toHaveURL(/\/view_cart/)
 
+    }
+
+    goToContactUsPage = async () => {
+        await this.contactUsButton.waitFor()
+        await this.contactUsButton.click()
+        await expect(this.page).toHaveURL(/\/contact_us/)
     }
 
 
