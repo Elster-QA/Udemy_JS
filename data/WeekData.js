@@ -1,5 +1,9 @@
 import { v4 as uuidv4 } from '../node_modules/uuid'
 
+const email = uuidv4()
+const emailField = email + '@gmail.com'
+export const genNewEmail = emailField
+
 
 export const adressData = {
     firstName: 'John',
@@ -44,8 +48,10 @@ export const itemDataViewProduct = {
 
 }
 
+export const contactUs = {
+    subject: 'My private message',
+    textmessage: 'I`m really happy that i can use and traning on this paltform. I want say to you, that you are good guy and you did a great work. Thx '
+}
 
-const email = uuidv4()
-const emailField = email + '@gmail.com'
-export const genNewEmail = emailField
+
 
