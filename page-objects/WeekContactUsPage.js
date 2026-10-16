@@ -6,7 +6,7 @@ export class WeekContactUsPage {
 
     entryDataToField = async () => { 
         await this.nameField.waitFor()
-        await this.nameField.fill('HelloWorld')
+        await this.nameField.fill(process.env.WEEK_NAME)
     }
 
 
