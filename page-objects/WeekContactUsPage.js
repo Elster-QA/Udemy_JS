@@ -24,7 +24,7 @@ export class WeekContactUsPage {
         await this.textField.waitFor()
         await this.textField.fill(contactUs.textmessage)
         await this.addFileButton.waitFor()
-        await this.addFileButton.setInputFiles('D:/elevoc_dnn_kernel.txt')
+        // await this.addFileButton.setInputFiles('E:/OTHER/IMG_20240112_212315_224.jpg')//PCroute
         await this.page.on('dialog', async dialog => {//For close modal window for browser. ".accept()"- pass OK key, "dismiss()"- pass dicede key in modal window
             await dialog.accept()
         })
