@@ -1,3 +1,4 @@
+import { expect } from '@playwright/test'
 import { contactUs, genNewEmail } from "../data/WeekData"
 
 export class WeekContactUsPage {
@@ -9,7 +10,7 @@ export class WeekContactUsPage {
         this.textField = page.locator('[data-qa="message"]')
         this.addFileButton = page.locator('[name="upload_file"]')
         this.submitButton = page.locator('[name="submit"]')
-        this.accessText = page.locator('[style="display: block;"]')
+        this.accessText = page.locator('[class="status alert alert-success"]')
         this.homeButton = page.locator('[class="btn btn-success"]')
     }
 
@@ -23,16 +24,18 @@ export class WeekContactUsPage {
         await this.textField.waitFor()
         await this.textField.fill(contactUs.textmessage)
         await this.addFileButton.waitFor()
-        await this.addFileButton.setInputFiles('E:/OTHER/IMG_20240112_212315_224.jpg')
-        await this.page.on('dialog', async dialog => {//For modal window for browser
-        await dialog.accept()
+        await this.addFileButton.setInputFiles('D:/elevoc_dnn_kernel.txt')
+        await this.page.on('dialog', async dialog => {//For close modal window for browser. ".accept()"- pass OK key, "dismiss()"- pass dicede key in modal window
+            await dialog.accept()
         })
         await this.submitButton.waitFor()
         await this.submitButton.click()
-        // await expect(this.accessText.first()).toHaveText('Success! Your details have been submitted successfully.')
+        await this.page.pause()
+        await this.accessText.waitFor()
+        await expect(this.accessText).toHaveText('Success! Your details have been submitted successfully.')
         await this.homeButton.waitFor()
         await this.homeButton.click()
-        await this.page.pause()
+
 
 
 
