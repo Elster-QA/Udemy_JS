@@ -31,7 +31,7 @@ export class WeekContactUsPage {
         await this.submitButton.click()
         // await expect(this.accessText.first()).toHaveText('Success! Your details have been submitted successfully.')
         await this.homeButton.waitFor()
-        await this.homeButton.click()jh
+        await this.homeButton.click()
         await this.page.pause()
 
 
