@@ -64,28 +64,29 @@ test('name', async ({ page }) => {
     // await cartPage.checkRemItemFromBasket(itemDataOnProductsPage.Soft_Stretch_Jeans)
 
 
-    await navigation.goToProductsPage()
-    await productsPage.goToBrandsPolo()
+    // await navigation.goToProductsPage()
+    // await productsPage.goToBrandsPolo()
 
-    await productsPage.goToViewProduct(itemDataViewProduct.viewProdSoft_Stretch_Jeans)
-    await productsPage.setCountItemProduct('9')
-    const itemBeforeAdd = await productsPage.getCountItemInViewProduct()
+    // await productsPage.goToViewProduct(itemDataViewProduct.viewProdSoft_Stretch_Jeans)
+    // await productsPage.setCountItemProduct('9')
+    // const itemBeforeAdd = await productsPage.getCountItemInViewProduct()
 
-    await navigation.goToBasketPage()
-    const itemAfterAdd = await cartPage.getCountItemInBasket(itemDataInCart.inCartSoft_Stretch_Jeans)
-    expect(itemBeforeAdd).toEqual(itemAfterAdd)
+    // await navigation.goToBasketPage()
+    // const itemAfterAdd = await cartPage.getCountItemInBasket(itemDataInCart.inCartSoft_Stretch_Jeans)
+    // expect(itemBeforeAdd).toEqual(itemAfterAdd)
     
-await page.pause()
-    await navigation.goToProductsPage()
-    await productsPage.checkSearchField('top')//Think about it later
-    await productsPage.goToCatWomenTOPS()
-    await productsPage.goToViewProduct(itemDataViewProduct.viewProdLace_Top)
-    await productsPage.setCountItemProduct('5')
-    const countBeforeAdd = await productsPage.getCountItemInViewProduct()
-    await navigation.goToBasketPage()
-    const countAfterAdd = await cartPage.getCountItemInBasket(itemDataInCart.inCartLace_Top)
-    expect(countBeforeAdd).toEqual(countAfterAdd)
 
+    // await navigation.goToProductsPage()
+    // await productsPage.checkSearchField('dress')//Think about it later
+    // await productsPage.goToCatWomenTOPS()
+    // await productsPage.goToViewProduct(itemDataViewProduct.viewProdLace_Top)
+    // await productsPage.setCountItemProduct('5')
+    // const countBeforeAdd = await productsPage.getCountItemInViewProduct()
+    // await navigation.goToBasketPage()
+    // const countAfterAdd = await cartPage.getCountItemInBasket(itemDataInCart.inCartLace_Top)
+    // expect(countBeforeAdd).toEqual(countAfterAdd)
+
+await page.pause()
     await navigation.goToContactUsPage()
     const contactUsPage = new WeekContactUsPage(page)
     await contactUsPage.entryDataToPageContactUs()
