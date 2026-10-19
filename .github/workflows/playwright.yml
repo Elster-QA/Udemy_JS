@@ -1,7 +1,7 @@
 name: Playwright Test
 on:
- push:
-  branches: [ main ]
+  workflow_dispatch:        #  push:
+                            #   branches: [ main ]
 jobs:
   playwrighttests:
     runs-on: ubuntu-latest
