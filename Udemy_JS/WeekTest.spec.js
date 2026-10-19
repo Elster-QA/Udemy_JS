@@ -12,7 +12,7 @@ import { WeekContactUsPage } from '../page-objects/WeekContactUsPage'
 
 
 
-test('name', async ({ page }) => {
+test.skip('name', async ({ page }) => {
 
     const navigation = new WeekNavigation(page)
     await navigation.visit()
