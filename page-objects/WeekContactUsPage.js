@@ -14,6 +14,8 @@ export class WeekContactUsPage {
         this.homeButton = page.locator('[class="btn btn-success"]')
     }
 
+    
+
     entryDataToPageContactUs = async () => {
         await this.nameField.waitFor()
         await this.nameField.fill(process.env.WEEK_NAME)
