@@ -12,7 +12,7 @@ import { WeekContactUsPage } from '../page-objects/WeekContactUsPage'
 
 
 
-test.skip('name', async ({ page }) => {
+test('name', async ({ page }) => {
 
     const navigation = new WeekNavigation(page)
     await navigation.visit()
@@ -32,6 +32,9 @@ test.skip('name', async ({ page }) => {
     const productsPage = new WeekProductsPage(page)
     const cartPage = new WeekCartPage(page)
     await navigation.goToProductsPage()
+    await page.pause()
+    await productsPage.addMostExpensiveProd()
+
     await productsPage.goToBrandsPolo()
     await productsPage.addProductCard(itemDataOnProductsPage.Polo_T_Shirts)
     await navigation.goToBasketPage()

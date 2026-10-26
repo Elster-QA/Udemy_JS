@@ -14,6 +14,7 @@ export class WeekProductsPage {
         this.prodInfo = page.locator('.product-information')
         this.inputCountProd = page.locator('#quantity')
         this.addButtonFromProdPage = page.getByRole('button', { name: ' Add to cart' })
+this.addButtonFromProdPage2 = page.locator('.bth')
 
         this.catWomen = page.locator('a[href="#Women"]')
         this.catWomenTOPS = page.locator('a[href="/category_products/2"]')
@@ -88,7 +89,7 @@ export class WeekProductsPage {
         await this.searchInput.fill(index)
         await this.searchButton.waitFor()
         await this.searchButton.click()
-        
+
         if (await this.nameItemProduct.count() === 1) {
             const textProduct = await this.nameItemProduct.innerText()
             expect(textProduct.toLowerCase()).toContain(index.toLowerCase())
@@ -96,6 +97,9 @@ export class WeekProductsPage {
             const allTextProduct = await this.nameItemProduct.allInnerTexts()
             expect(allTextProduct.join(' ').toLowerCase()).toContain(index.toLowerCase())
         }
+
+
+
         // console.log( textProduct )
         // await this.nameItemProduct.isVisible()
 
@@ -107,6 +111,24 @@ export class WeekProductsPage {
     }
 
 
+    addMostExpensiveProd = async () => {
+        const countPrice = await this.mainCardsLocator.locator('h2').allInnerTexts()
+        const justnumbers = countPrice.map((element)=>{
+            const clearNumber = element.replace('Rs.','')
+            
+            return parseInt(clearNumber, 10)
+        })
+        console.log(justnumbers)
+        const expensivePrice = Math.max(...justnumbers)
+        const expensivePriceIdx = await justnumbers.indexOf(expensivePrice)
+        
+        console.warn({expensivePriceIdx})
+        
+         await this.addButtonFromProdPage2.nth(4).click()
+        // await this.specificButton.waitFor() getByText('Add to cart').nth(3) add-to-cart
+        
+
+    }
 
 
 

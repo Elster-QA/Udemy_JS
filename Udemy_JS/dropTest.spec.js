@@ -5,8 +5,12 @@ test('myT', async ({page})=>{
     const dropClass = new DropClass(page)
     await dropClass.visit()
 
-    await dropClass.sortBy()
-    
+    await dropClass.sortByASC()
+    await dropClass.sortByDESC()
+    await dropClass.sortByDEF()
+
+    await dropClass.justPrintunionMass()
+        
 
 
 })
