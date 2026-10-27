@@ -12,11 +12,15 @@ export class WeekContactUsPage {
         this.submitButton = page.locator('[name="submit"]')
         this.accessText = page.locator('[class="status alert alert-success"]')
         this.homeButton = page.locator('[class="btn btn-success"]')
+        this.feedBlockLink = page.locator('[class="contact-info"]').getByRole('link', { name: 'feedback@automationexercise.' })
     }
 
     
 
     entryDataToPageContactUs = async () => {
+        await this.feedBlockLink.waitFor()
+        await this.feedBlockLink.click()
+
         await this.nameField.waitFor()
         await this.nameField.fill(process.env.WEEK_NAME)
         await this.emailField.waitFor()
@@ -37,10 +41,6 @@ export class WeekContactUsPage {
         await expect(this.accessText).toHaveText('Success! Your details have been submitted successfully.')
         await this.homeButton.waitFor()
         await this.homeButton.click()
-
-
-
-
 
     }
 
