@@ -40,10 +40,7 @@ test('name', async ({ page }) => {
     await navigation.goToBasketPage()
     await cartPage.checkAddItemInBasket(itemDataInCart.inCartPolo_T_Shirts)
 
-    // 
     
-
-
     // await navigation.goToProductsPage()
     // await productsPage.goToBrandsPolo()
 

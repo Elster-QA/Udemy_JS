@@ -124,7 +124,7 @@ this.addButtonFromProdPage2 = page.locator('.bth')
         
         console.warn({expensivePriceIdx})
         
-         await this.addButtonFromProdPage2.nth(4).click()
+        //  await this.addButtonFromProdPage2.nth(4).click()
         // await this.specificButton.waitFor() getByText('Add to cart').nth(3) add-to-cart
         
 
