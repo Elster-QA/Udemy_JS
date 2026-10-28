@@ -22,14 +22,14 @@ export default defineConfig({
   },
 
   projects: [
-    // {
-    //   name: 'chromium',
-    //   use: { 
-    //     ...devices['Desktop Chrome'],
-    //     headless: true,               // окно будет НЕ видно(true)
-    //     launchOptions: { slowMo: 250 }, // замедление 0.5 сек между действиями
-    //   },
-    //  },
+    {
+      name: 'chromium',
+      use: { 
+        ...devices['Desktop Chrome'],
+        headless: true,               // окно будет НЕ видно(true)
+        launchOptions: { slowMo: 250 }, // замедление 0.5 сек между действиями
+      },
+     },
        //   name: 'firefox',
     //   use: { 
     //   ...devices['Desktop Firefox'],
@@ -46,14 +46,14 @@ export default defineConfig({
     //   },
     // },
     /*Test browser for mobile*/
-     {
-      name: 'Mobile chrome',
-      use: { 
-        ...devices['Pixel 5'],//Это конфиг под мобильный браузер. В этой строке указываем девайс под которым будет проходить тест.
-        headless: true,               
-        launchOptions: { slowMo: 250 }, 
-      },
-    },
+    //  {
+    //   name: 'Mobile chrome',
+    //   use: { 
+    //     ...devices['Pixel 5'],//Это конфиг под мобильный браузер. В этой строке указываем девайс под которым будет проходить тест.
+    //     headless: true,               
+    //     launchOptions: { slowMo: 250 }, 
+    //   },
+    // },
     //  {
     //   name: 'Mobile safari',
     //   use: { 

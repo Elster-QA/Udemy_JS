@@ -1,5 +1,5 @@
 import { expect } from '@playwright/test'
-import { Navigation } from './Navigation_39_M'
+import { Navigation } from './Navigation40_Advance'
 import { isDesktopViewport } from '../utils/isDesktopViewport'
 
 
