@@ -21,11 +21,11 @@ export class Navigation {
     }
 
     goToCheckout = async () => {
-        await this.page.pause()
         //if mobile viewport, first open the burger menu
-        if (!isDesktopViewport(this.page)) { 
-            this.mobileBurgerButton.click() }//+
-        
+        if (!isDesktopViewport(this.page)) {
+            this.mobileBurgerButton.click()
+        }
+
         await this.checkoutLink.waitFor()
         await this.checkoutLink.click()
         await this.page.waitForURL('/basket')

@@ -41,7 +41,7 @@ export class PaymentPage {
         const priceAfter = parseInt(await this.priceAfterDiscounRow.innerText(), 10)//Это "мой") вариант, ParseInt оставляет только числа, но если числа ижут в начале строки т.е. "125$", но если так "$125", то смотри метод выше
         console.log({ priceAfter })
         expect(priceAfter).toBeLessThan(clearNumber)
-        await this.page.pause()
+        
     }
 
     fillPaymentDetails = async (paymentsDetails) => {

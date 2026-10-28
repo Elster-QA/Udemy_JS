@@ -52,7 +52,7 @@ export class ProductsPage {
         await this.sortDropdown.selectOption('price-asc')//selectOption-работа с DropDownList в аргументе указываем один из пунктов выпад. списка
         const productTitlesAfterSort = await this.productTitle.allInnerTexts()
         expect(productTitlesBeforeSort).not.toEqual(productTitlesAfterSort)
-        // await this.page.pause()
+        
     }
 
 

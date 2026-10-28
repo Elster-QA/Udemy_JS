@@ -49,11 +49,9 @@ export class PaymentPage {
         await this.cardOwnerField.waitFor()
         await this.cardOwnerField.fill(paymentsDetails.cardOwner)
         expect(await this.cardOwnerField.inputValue()).toBe(paymentsDetails.cardOwner)
-
         await this.cardNumberField.waitFor()
         await this.cardNumberField.fill(paymentsDetails.cardNumber)
         expect(await this.cardNumberField.inputValue()).toBe(paymentsDetails.cardNumber)
-
         await this.cardValidField.waitFor()
         await this.cardValidField.fill(paymentsDetails.cardValidUntil)
         expect(await this.cardValidField.inputValue()).toBe(paymentsDetails.cardValidUntil)
