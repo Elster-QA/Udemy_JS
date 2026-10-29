@@ -19,7 +19,10 @@ export class Checkout {
             const withoutDollarsSigh = elements.replace("$", "")//.replace из каждого числа массива убирает знак "$" и ставит пустоту ""
             // console.log({ withoutDollarsSigh })
             return parseInt(withoutDollarsSigh, 10)
-        })
+    })
+            
+        
+    
         // console.log({ justNumbers })
 
         const smallestPrice = Math.min(...justNumbers)// Math.min-возвращает в перем.smallestPrice минимальное значение из justNumbers. (...justNumbers) -Три точки разворачивают массив в список чисел.Например:[10, 5, 99]->10, 5, 99
@@ -38,6 +41,7 @@ export class Checkout {
         await this.checkOutButton.click()
         await expect(this.page).toHaveURL(/\/login/, { timeout: 3000 })///\/login/-это регулярное выражение используется для частичного совпадения в тексте//{timeout:3000}-применение таймаута к конкретному элементу
     }
+    }
 
 
 
@@ -45,5 +49,5 @@ export class Checkout {
 
 
 
-}
+
 
