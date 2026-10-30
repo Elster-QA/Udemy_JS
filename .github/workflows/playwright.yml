@@ -13,6 +13,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Run tests
+        working-directory: ./Udemy-Rick-Schubert-Course
         run:  |
           echo "Start the shopping store application"
           chmod +x ./shopping-store-linux-amd64
