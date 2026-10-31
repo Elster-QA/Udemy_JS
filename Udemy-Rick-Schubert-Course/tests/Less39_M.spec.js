@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test'
-import { v4 as uuidv4 } from '../node_modules/uuid/dist'
+import { v4 as uuidv4 } from 'uuid'
 import { ProductsPage } from '../page-objects/ProductPage_39_M'
 import { Navigation } from '../page-objects/Navigation_39_M'
 import { Checkout } from '../page-objects/Checkout_39_M'

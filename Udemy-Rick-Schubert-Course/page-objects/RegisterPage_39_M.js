@@ -1,4 +1,4 @@
-import { v4 as uuidv4 } from '../node_modules/uuid/dist'//Импорт зависимости для генерации переменных
+import { v4 as uuidv4 } from 'uuid'//Импорт зависимости для генерации переменных
 
 import { expect } from "@playwright/test"
 
